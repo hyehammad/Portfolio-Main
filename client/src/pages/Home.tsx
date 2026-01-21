@@ -1,5 +1,4 @@
-import { motion, AnimatePresence } from "framer-motion";
-import { useEffect, useState, useRef } from "react";
+import { useState, useEffect } from "react";
 import { Layout } from "@/components/layout/Layout";
 import { Navbar } from "@/components/layout/Navbar";
 import { Preloader } from "@/components/sections/Preloader";
@@ -8,13 +7,15 @@ import { About } from "@/components/sections/About";
 import { Skills } from "@/components/sections/Skills";
 import { Projects } from "@/components/sections/Projects";
 import { Contact } from "@/components/sections/Contact";
+import { CustomCursor } from "@/components/ui/CustomCursor";
+import { AnimatePresence, motion } from "framer-motion";
 
 const sectionColors: Record<string, string> = {
-  home: "#080808",     // Noir
-  about: "#0f1514",    // Muted Deep Teal
-  skills: "#14110f",   // Muted Charcoal
-  projects: "#1a0f11", // Muted Crimson Depth
-  contact: "#080808",  // Back to Noir
+  home: "#080808",
+  about: "#0f1514",
+  skills: "#14110f",
+  projects: "#1a0f11",
+  contact: "#080808",
 };
 
 export default function Home() {
@@ -54,6 +55,7 @@ export default function Home() {
 
   return (
     <>
+      <CustomCursor />
       <AnimatePresence mode="wait">
         {loading && <Preloader key="preloader" onComplete={() => setLoading(false)} />}
       </AnimatePresence>

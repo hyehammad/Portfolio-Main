@@ -1,0 +1,113 @@
+# **Cursor Design Prompt for Cinematic Portfolio**
+
+## **Core Concept: "Quantum Pointer"**
+
+Create an elegant, premium cursor system that feels like a **sophisticated measurement tool from a physics lab** combined with the **precise elegance of a luxury timepiece**. The cursor should be an extension of the portfolio's cinematic, elite aesthetic.
+
+## **Visual Design Direction**
+
+### **Base Cursor Structure:**
+```
+Primary Layer: A 2×2px perfect square of pure white (#F8F5F0) at 100% opacity
+Secondary Layer: A 24px diameter circular wireframe in soft gold (rgba(212, 175, 55, 0.15))
+Tertiary Layer: Four microscopic gold points at cardinal positions (N, E, S, W)
+```
+
+### **Behavior & Animation Language:**
+- **Movement:** 12ms delay with critically damped spring physics (feels precise, not floaty)
+- **Transitions:** All state changes use your cinematic easing curve (`cubic-bezier(0.645, 0.045, 0.355, 1)`)
+- **Micro-interactions:** Sub-pixel positioning for ultra-smooth motion
+
+## **Context-Aware States**
+
+### **1. Default State (Idle Exploration):**
+- **Visual:** Minimalist crosshair (1px strokes) that occasionally emits a single gold particle that drifts downward and fades
+- **Behavior:** Subtle breathing animation (scale 1 → 1.05 over 3 seconds)
+- **Sound Design Concept:** Complete silence, letting the grain texture audio dominate
+
+### **2. Hover Over Interactive Elements (Buttons, Links):**
+- **Transformation:** The square rotates 45° to become a diamond, then scales to 150%
+- **Accent:** The gold wireframe briefly intensifies to 30% opacity, then settles to 20%
+- **Particle Effect:** Two gold particles spiral outward from the center
+- **Timing:** 180ms for full transformation
+
+### **3. Hover Over Project Slits (Your Special Interaction):**
+- **Before Expansion (0-300ms):**
+  - Cursor becomes a **vertical measurement bar** (40px tall × 4px wide)
+  - Displays the project number in a microscopic 6px monospace font
+  - Emits a **data stream visualization** (falling binary digits at 5% opacity)
+
+- **During Expansion (300-800ms):**
+  - Morphs into a **cinema clapperboard icon** (symbolizing "action" or "scene reveal")
+  - Gold wireframe becomes a 32px square with rounded corners
+  - Center square pulses gently with the project's accent color
+
+- **After Expansion (800ms+):**
+  - Returns to default state but with a **persistent golden aura** around it
+  - Leaves faint afterimages (like long exposure photography) when moving over the expanded card
+
+### **4. Drag States (For Your Orbital Gallery):**
+- **Visual:** Becomes a **gyroscope/compass** with rotating inner rings
+- **Feedback:** Outer ring deforms elliptically based on drag velocity
+- **Particles:** Gold dust trails from the drag direction
+
+### **5. Loading/Processing States:**
+- **Animation:** Becomes a **progress ring** (quarter circle that fills over time)
+- **Detail:** Shows microscopic percentage text (85% opacity)
+- **Pulse:** Gentle expansion/contraction at 2Hz frequency
+
+## **Premium Details & Easter Eggs**
+
+### **Hidden Interactions:**
+- **Quick Movement:** When mouse accelerates rapidly, cursor **streaks** with motion blur
+- **Idle Time:** After 8 seconds of no movement, cursor performs a **watch winding animation** (tiny clockwise rotation)
+- **Screen Edges:** When approaching viewport edges, cursor shows **subtle edge resistance** (slows slightly)
+
+### **Time-Based Variations:**
+- **Day Cycle:** Gold accent shifts slightly warmer/cooler based on local time
+- **Usage Duration:** After 3 minutes of continuous use, reveals a **microscopic patina texture** on the gold elements
+
+### **Project-Specific States:**
+- **Over Design Projects:** Cursor gains **grid alignment lines**
+- **Over Code Projects:** Shows **syntax highlighting colors** in particles
+- **Over Writing Projects:** Briefly becomes a **quill pen icon**
+
+## **Technical Requirements**
+
+### **Performance Considerations:**
+- Maximum 3 DOM elements for cursor
+- All animations hardware-accelerated
+- Frame rate target: 120fps minimum
+- Memory usage: < 2MB for cursor system
+
+### **Accessibility:**
+- Respects `prefers-reduced-motion`
+- High contrast mode fallback
+- Screen reader invisible (doesn't interfere with focus)
+- Keyboard navigation compatible
+
+### **Browser Support:**
+- Primary: Chrome, Safari, Firefox (latest)
+- Fallback: Standard cursor on mobile/touch devices
+- Graceful degradation on low-performance devices
+
+## **Inspiration References**
+
+1. **Apple Pro Display XDR's reference mode cursor** (precision, calibration)
+2. **Leica rangefinder's focus patch** (elegance, accuracy)
+3. **Film director's viewfinder** (cinematic framing)
+4. **Architect's drafting tools** (precision, minimalism)
+5. **Luxury watch complications** (detailed, engineered)
+
+## **Success Metrics**
+
+The cursor should feel:
+- **Invisible** when you're not thinking about it
+- **Delightful** when you notice the details
+- **Premium** in every interaction
+- **Purposeful** in its design
+- **Memorable** as part of the overall experience
+
+---
+
+**Final Note:** This cursor shouldn't shout for attention but should reward close observation. It's the Swiss watch of cursors—understated excellence that reveals its quality through use, not appearance.
