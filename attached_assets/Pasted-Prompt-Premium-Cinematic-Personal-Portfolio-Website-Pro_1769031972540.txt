@@ -1,0 +1,225 @@
+Prompt: Premium Cinematic Personal Portfolio Website
+Project Vision & Core Experience
+Design and develop a high-end personal portfolio website that transcends typical digital resumes. The site must function as an immersive personal brand experience, evoking the sophistication of a luxury brand launch film, the emotional depth of a cinematic narrative, and the flawless execution of a premium digital product. The dominant feelings should be mature elegance, intentional calm, and elite craftsmanship. Every pixel, transition, and interaction must communicate refined taste and professional authority.
+
+🎭 1. Overall Visual & Emotional Direction
+Aesthetic Principles:
+Primary Vibe: "Quiet Luxury" meets "Artist's Studio."
+
+Tactile Quality: Implement a subtle, continuous grainy film texture over the entire site. This should feel like high-quality matte paper or fine canvas, not a noisy filter. Opacity should be very low (~2-5%) but perceptible.
+
+Color Philosophy: Colors are emotionally resonant, not just decorative. They shift to reflect the narrative of each section.
+
+Base Palette (Neutral Foundation):
+
+#0f111a (Deep Charcoal Navy)
+
+#1a1c25 (Warm Charcoal)
+
+#2a2d3a (Muted Graphite)
+
+#f8f5f0 (Warm Off-White / Bone)
+
+Accent Palette (Emotional Highlights): Choose 1-2 primary accents and use them sparingly like precious metals.
+
+Soft Gold: #d4af37 (for confidence, achievement)
+
+Muted Teal: #5a7d7a (for depth, intellect)
+
+Dusty Rose: #b8948f (for creativity, passion)
+
+Sage: #8a9b76 (for growth, balance)
+
+Typography: Use a sophisticated, highly legible serif (e.g., Playfair Display, Cormorant Garamond) for headlines and a clean, geometric sans-serif (e.g., Inter, Poppins) for body text. Font weights should be medium to light; avoid black weights. Generous letter-spacing and line-height.
+
+Cinematic Motion Language:
+Easing: Use custom bezier curves (cubic-bezier(0.645, 0.045, 0.355, 1.000) or similar) for all animations—slow start, smooth middle, gentle stop.
+
+Speed: Animations are deliberate, not fast. Transitions should take 800ms-1200ms. Micro-interactions: 300ms.
+
+Parallax: Implement subtle, multi-layered parallax on hero sections using background textures and foreground elements moving at different speeds.
+
+🌀 2. Core Feature: Seamless Color-Morphing Navigation
+This is the defining technical and visual feature. The site's dominant background/overlay color must fluidly transition as the user scrolls between main sections/pages.
+
+Mechanism: Use a combination of CSS custom properties (variables) and JavaScript (Intersection Observer API) to detect section viewport entry.
+
+Transition Effect: The color change is not a simple switch. It should be a gradient-morph animation where the current color slowly blends into the next. Consider using a pseudo-element with a gradient that changes its background-position or opacity.
+
+Color Story by Page:
+
+Pre-loader: Deep Charcoal (#0f111a) – a blank canvas.
+
+Landing: Charcoal fading to a hint of Soft Gold at the edges – the curtain rises.
+
+About: Transition to warmer, softer Muted Teal mixed with Warm Grey – introspective and human.
+
+Skills: Shift to a cooler, more focused Sage/Graphite mix – analytical and precise.
+
+Projects: The most dynamic shift. Background reacts to the selected project, using its accent color (e.g., Dusty Rose for a creative project, Teal for a technical one) at a very low saturation in the ambient light.
+
+Contact: Return to a serene, confident Deep Charcoal with subtle Gold highlights – stable and ready.
+
+🦋 3. Pre-Loader / Opening Sequence (Mandatory)
+This is the emotional hook. It must feel like the opening title sequence of an independent film.
+
+Animation Sequence (Frame-by-Frame Feel):
+
+Screen is Deep Charcoal (#0f111a) with the grainy texture.
+
+From the right, a detailed, elegantly illustrated pencil rolls into the center with a smooth, slightly bouncy motion. Sound design note (for concept): imagine a soft wooden roll.
+
+The pencil tilts as if held by an invisible hand and begins to write "My Portfolio" in a beautiful, animated handwriting script (use a vector path animation, e.g., Lottie or SVG stroke-dasharray). The line has a slight texture, like real ink on paper.
+
+As the final flourish of the writing completes, a delicately animated butterfly (monochrome, line-art style) flutters in from the top and gently lands on the crossbar of a 't' or the dot of an 'i'.
+
+The butterfly's wings pulse very slowly in a resting motion. A subtle progress indicator (e.g., a barely visible circular progress bar around the text) loads assets.
+
+On Load Complete: The butterfly's wings close and it dissolves into a shower of very fine, glowing particles. These particles float upwards and become the first light particles of the Landing page hero animation. The pencil fades out. The handwritten text gently morphs (using mix-blend-mode) into the site's primary logo/name typography.
+
+The entire screen then smoothly dissolves/translates into the Landing Page.
+
+🧭 4. Navigation Bar
+Position & Style: Sticky to top. Height: ~70px. Background: semi-transparent (rgba(15, 17, 26, 0.7)) with a subtle backdrop blur (backdrop-filter: blur(10px)).
+
+Logo: Minimal typographic mark from the handwritten pre-loader font.
+
+Menu Items: "Home, About, Skills, Projects, Contact". Displayed in the clean sans-serif font. No underline by default.
+
+Hover Effect: Item text color shifts to the accent color (Gold). A thin, animated underline draws itself from center to edges. A subtle text-shadow glow appears.
+
+Social Icons: Instagram, LinkedIn, GitHub. Use minimalist, line-style icons (e.g., Feather Icons). On hover, they scale to 115%, glow in the accent color, and a tooltip with the username appears.
+
+Indicator: A small dot or line on the navbar that moves smoothly as the user scrolls between sections, synchronized with the color morph.
+
+🏠 5. Landing / Hero Page
+Layout: Full-viewport height. Content is center-left aligned (or centered for mobile).
+
+Background: The dominant morphing color (Charcoal->Gold) with a slow-moving, ethereal gradient mesh (like a cloudy watercolor wash) in the background.
+
+Hero Text:
+
+Line 1 (Fade-in): "Hello, I'm [Name]." (Subtle, personal)
+
+Line 2 (Typewriter effect, then hold): A rotating tagline array: "A Designer who Codes.", "A Problem-Finder.", "A Storyteller." (Each phrase appears with a typewriter effect, pauses, then elegantly erases before the next appears).
+
+Line 3 (Slide-up from bottom): A powerful, one-sentence mission statement (e.g., "I craft digital experiences that balance emotion and precision.").
+
+CTA Buttons: Two buttons: "View My Work" (primary, filled with accent color), "Get in Touch" (secondary, outlined). Both have a magnetic hover effect (button slightly pulls cursor in) and a soft sustained glow.
+
+👤 6. About Me Page
+Avoid: Linear, text-heavy biography.
+
+Layout Concept: "Interactive Museum Wall." Use a horizontal-scrolling or full-screen panel layout.
+
+Content Panels:
+
+Panel 1 (The Portrait): A tasteful, artistic black-and-white photo or illustrated portrait. On hover, a CSS filter overlay adds a very slight color tint (e.g., Teal) and reveals a short, poetic quote overlaid.
+
+Panel 2 (The Timeline): A vertical, animated timeline. Each node (Education, Past Experience) is a circle that pulses gently. Hovering over a node expands a card to the side with details, using a smooth height/width transition.
+
+Panel 3 (The Map / Roots): A stylized, minimal vector map showing "Where I'm From." Key locations are marked with dots that glow and emit concentric rings on hover, revealing a personal anecdote.
+
+Transitions: As the user scrolls (or clicks) between panels, the background color morphs slightly within the About page's designated color range.
+
+🧠 7. Skills Page
+Concept: "Constellation of Proficiency."
+
+Visual: Skills are represented as floating nodes/cards in a seemingly organic, non-grid layout. Each node has:
+
+A central icon/logo (monochrome, elegant).
+
+A circular progress indicator that is NOT a bar, but a dashed circle where the dashes animate to fill the circumference on scroll-into-view.
+
+The skill name.
+
+Interaction: Hovering over a node makes it the "star." It scales up slightly, glows, and delicate connecting lines draw themselves to 2-3 related skills, suggesting skill relationships. A brief, elegant description fades in nearby.
+
+Grouping: Nodes are visually grouped by category (e.g., Design, Front-End, Tools) via proximity and subtle color tinting.
+
+🧩 8. Projects Page (The Showcase)
+Layout: "Orbital Gallery."
+
+On desktop, present projects in a large circular arrangement (like planets orbiting). The user can click and drag to rotate the entire circle, or use arrow keys/nav dots.
+
+The centrally focused project is largest and fully detailed.
+
+Projects to the sides are smaller, tilted, and partially transparent.
+
+Project Focus State:
+
+When a project comes to focus (center), the background color morphs slightly to its thematic accent.
+
+The project card smoothly expands, revealing:
+
+Project title & category tag.
+
+A key visual (image or video).
+
+A concise description.
+
+Tech stack as small, elegant badges.
+
+Two buttons: "Case Study" (opens a detailed modal/overlay), "Live View" (external).
+
+Modal/Overlay: Opening a case study should feel like a cinematic pause. The rest of the site dims with a heavy blur, and the case study slides up as a full-screen panel with its own immersive content (scrolling text, galleries, videos). Closing it returns seamlessly to the orbital view.
+
+Mobile Fallback: A vertical, stacked list with a cover-flow style horizontal swipe gesture for mobile.
+
+✉️ 9. Contact Page
+Atmosphere: Calm, confident, and spacious.
+
+Layout: Split-screen or two-column.
+
+Left: Minimal contact info (email, location) presented as elegant typography. Optional: a tiny, abstract animated illustration (like a slowly pulsing circle representing a signal).
+
+Right: A pristine, minimal form with fields: Name, Email, Subject, Message.
+
+Form Interactions:
+
+Input fields have a bottom border only. On focus, the border color animates to gold and a soft gradient underline expands.
+
+A floating label effect is preferred.
+
+The submit button has a sophisticated effect: on hover, it fills from left to right with the accent color.
+
+Submission: Upon successful submission, show a non-intrusive notification (e.g., a small checkmark animation that appears on the button itself).
+
+✨ 10. Global Interactions & Micro-Animations
+Cursor: Consider a custom, subtle cursor – a small circle that mixes mix-blend-mode: difference and slightly lags behind the real cursor.
+
+Scrollbar: A very thin, custom scrollbar in the accent color.
+
+Image/Graphic Hover: All images have a subtle "lift and soften" effect on hover: a slight scale-up, increased brightness, and a soft vignette.
+
+Link Hover: Underline draws from center (as in nav).
+
+Page Transitions: When navigating between pages (if using MPA/SPA), use a smooth fade-through-black or a gentle swipe transition, maintaining the color-morphing context.
+
+📱 11. Technical Requirements
+Framework/Approach: Use a modern framework (React/Next.js, Vue/Nuxt, or pure GSAP/Three.js for advanced visuals) that allows for smooth SPAs.
+
+Animation Libraries: GSAP for complex sequences, Framer Motion or React Spring for React-based UI animations. Use CSS for simpler transitions.
+
+Performance:
+
+Implement lazy loading for all images and below-the-fold components.
+
+Optimize all animations to use transform and opacity for GPU acceleration.
+
+Compress and optimize the pre-loader butterfly and pencil animations (use Lottie or optimized SVG).
+
+Responsiveness: The design must not just shrink but intelligently adapt its layout and interaction models (e.g., orbital projects become vertical stack on mobile). Typography scales elegantly.
+
+🎯 Final Deliverable & Feeling
+The delivered website must make a visitor feel:
+
+As if they have stepped into a curated personal exhibition.
+
+That the individual behind it is deeply thoughtful, highly skilled, and emotionally intelligent.
+
+A sense of calm focus and premium quality throughout the entire journey.
+
+That the experience was unforgettable and distinctly different from any other portfolio they have seen.
+
+The ultimate test: If a visitor closes the tab and can vividly recall the feeling and at least two unique interactive moments (the butterfly, the orbital projects, the color morphing), the mission is accomplished.
