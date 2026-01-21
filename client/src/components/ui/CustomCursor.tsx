@@ -5,32 +5,16 @@ export function CustomCursor() {
   const mouseX = useMotionValue(0);
   const mouseY = useMotionValue(0);
 
-  const springConfig = { damping: 25, stiffness: 400, mass: 0.5 };
+  const springConfig = { damping: 20, stiffness: 200, mass: 0.5 };
   const cursorX = useSpring(mouseX, springConfig);
   const cursorY = useSpring(mouseY, springConfig);
 
   const [hoverState, setHoverState] = useState<"default" | "interactive" | "project">("default");
-  const [velocity, setVelocity] = useState(0);
 
   useEffect(() => {
-    let lastX = 0;
-    let lastY = 0;
-    let lastTime = Date.now();
-
     const handleMouseMove = (e: MouseEvent) => {
-      const now = Date.now();
-      const dt = now - lastTime;
-      const dx = e.clientX - lastX;
-      const dy = e.clientY - lastY;
-      const v = Math.sqrt(dx*dx + dy*dy) / dt;
-      
-      setVelocity(v);
       mouseX.set(e.clientX);
       mouseY.set(e.clientY);
-      
-      lastX = e.clientX;
-      lastY = e.clientY;
-      lastTime = now;
 
       const target = e.target as HTMLElement;
       if (target.closest("button, a, [role='button']")) {
@@ -48,44 +32,47 @@ export function CustomCursor() {
 
   return (
     <div className="fixed inset-0 pointer-events-none z-[9999] overflow-hidden">
-      {/* Path Illumination (Beam) */}
+      {/* Primary Layer: 2x2 Square */}
       <motion.div
-        className="fixed top-0 left-0 w-[160px] h-[80px] origin-left pointer-events-none"
-        style={{
-          x: cursorX,
-          y: cursorY,
-          background: "radial-gradient(ellipse at left, rgba(255, 215, 0, 0.15) 0%, transparent 70%)",
-          rotate: velocity > 0.1 ? 0 : 0, // In a real app we'd calculate angle
-          opacity: hoverState === "project" ? 0.4 : 0.2,
-        }}
-        animate={{
-          scaleX: 1 + velocity * 0.5,
-          skewY: velocity * 2,
-        }}
-      />
-
-      {/* The Beacon (Core) */}
-      <motion.div
-        className="fixed top-0 left-0 w-1.5 h-1.5 bg-[#FFD700] rounded-full"
+        className="fixed top-0 left-0 w-1 h-1 bg-ivory"
         style={{
           x: cursorX,
           y: cursorY,
           translateX: "-50%",
           translateY: "-50%",
-          boxShadow: "0 0 8px 2px rgba(255, 215, 0, 0.7), 0 0 24px 4px rgba(255, 215, 0, 0.2)",
         }}
         animate={{
+          rotate: hoverState === "interactive" ? 45 : 0,
           scale: hoverState === "interactive" ? 2 : 1,
-          opacity: 1,
+          borderRadius: hoverState === "project" ? "0%" : "0%",
+          width: hoverState === "project" ? 4 : 4,
+          height: hoverState === "project" ? 40 : 4,
         }}
         transition={{ duration: 0.2, ease: [0.645, 0.045, 0.355, 1] }}
       />
 
-      {/* Orbiting Particles */}
-      {[0, 120, 240].map((i) => (
+      {/* Secondary Layer: Wireframe Circle */}
+      <motion.div
+        className="fixed top-0 left-0 w-6 h-6 border border-gold/20 rounded-full"
+        style={{
+          x: cursorX,
+          y: cursorY,
+          translateX: "-50%",
+          translateY: "-50%",
+        }}
+        animate={{
+          scale: hoverState === "interactive" ? 1.5 : 1,
+          opacity: hoverState === "interactive" ? 0.3 : 0.15,
+          borderColor: hoverState === "interactive" ? "rgba(197, 160, 89, 0.4)" : "rgba(197, 160, 89, 0.2)",
+        }}
+        transition={{ duration: 0.3, ease: [0.645, 0.045, 0.355, 1] }}
+      />
+
+      {/* Tertiary Layer: Micro-points */}
+      {[0, 90, 180, 270].map((angle) => (
         <motion.div
-          key={i}
-          className="fixed top-0 left-0 w-0.5 h-0.5 bg-[#FFD700] rounded-full"
+          key={angle}
+          className="fixed top-0 left-0 w-0.5 h-0.5 bg-gold/40"
           style={{
             x: cursorX,
             y: cursorY,
@@ -93,11 +80,10 @@ export function CustomCursor() {
             translateY: "-50%",
           }}
           animate={{
-            x: Math.cos(Date.now() / 1000 + i) * 12,
-            y: Math.sin(Date.now() / 1000 + i) * 12,
-            opacity: [0.2, 0.5, 0.2],
+            x: Math.cos((angle * Math.PI) / 180) * (hoverState === "interactive" ? 20 : 12),
+            y: Math.sin((angle * Math.PI) / 180) * (hoverState === "interactive" ? 20 : 12),
           }}
-          transition={{ repeat: Infinity, duration: 2, ease: "linear" }}
+          transition={{ duration: 0.3, ease: [0.645, 0.045, 0.355, 1] }}
         />
       ))}
     </div>
