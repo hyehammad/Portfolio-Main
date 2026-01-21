@@ -1,16 +1,16 @@
 import { useEffect, useState } from "react";
-import { motion, useSpring, useMotionValue, AnimatePresence } from "framer-motion";
+import { motion, useSpring, useMotionValue } from "framer-motion";
 
 export function CustomCursor() {
   const mouseX = useMotionValue(0);
   const mouseY = useMotionValue(0);
   const [angle, setAngle] = useState(0);
 
-  const springConfig = { damping: 25, stiffness: 250, mass: 0.5 };
+  const springConfig = { damping: 30, stiffness: 300, mass: 0.5 };
   const cursorX = useSpring(mouseX, springConfig);
   const cursorY = useSpring(mouseY, springConfig);
 
-  const [hoverState, setHoverState] = useState<"default" | "interactive" | "project">("default");
+  const [hoverState, setHoverState] = useState<"default" | "interactive">("default");
 
   useEffect(() => {
     const handleMouseMove = (e: MouseEvent) => {
@@ -27,10 +27,8 @@ export function CustomCursor() {
       mouseY.set(e.clientY);
 
       const target = e.target as HTMLElement;
-      if (target.closest("button, a, [role='button']")) {
+      if (target.closest("button, a, [role='button'], .project-slit, input, textarea")) {
         setHoverState("interactive");
-      } else if (target.closest(".project-slit")) {
-        setHoverState("project");
       } else {
         setHoverState("default");
       }
@@ -42,27 +40,27 @@ export function CustomCursor() {
 
   return (
     <div className="fixed inset-0 pointer-events-none z-[9999] overflow-hidden">
-      {/* Cinematic Light Beam */}
+      {/* Refined Directional Glow */}
       <motion.div
-        className="fixed top-0 left-0 h-40 origin-left"
+        className="fixed top-0 left-0 h-32 origin-left"
         style={{
           x: cursorX,
           y: cursorY,
           rotate: angle,
-          width: 120,
-          background: "linear-gradient(90deg, rgba(255,255,255,0.4) 0%, rgba(197, 160, 89, 0.2) 50%, transparent 100%)",
-          maskImage: "radial-gradient(ellipse at left, black, transparent 70%)",
-          WebkitMaskImage: "radial-gradient(ellipse at left, black, transparent 70%)",
-          opacity: hoverState === "interactive" ? 0.8 : 0.4,
+          width: 100,
+          background: "linear-gradient(90deg, rgba(197, 160, 89, 0.15) 0%, transparent 100%)",
+          maskImage: "radial-gradient(ellipse at left, black, transparent 80%)",
+          WebkitMaskImage: "radial-gradient(ellipse at left, black, transparent 80%)",
         }}
         animate={{
-          scaleY: hoverState === "interactive" ? 1.5 : 1,
+          opacity: hoverState === "interactive" ? 0.6 : 0.3,
+          scaleY: hoverState === "interactive" ? 1.2 : 1,
         }}
       />
 
-      {/* Primary Pen Tip */}
+      {/* Main Cursor Point */}
       <motion.div
-        className="fixed top-0 left-0 flex items-center justify-center"
+        className="fixed top-0 left-0"
         style={{
           x: cursorX,
           y: cursorY,
@@ -70,33 +68,31 @@ export function CustomCursor() {
           translateY: "-50%",
         }}
       >
+        {/* Outer Ring */}
         <motion.div
-          className="w-2 h-2 bg-white rounded-full shadow-[0_0_10px_#fff,0_0_20px_#c5a059]"
+          className="absolute inset-0 w-8 h-8 -ml-4 -mt-4 border border-gold/20 rounded-full"
           animate={{
-            scale: hoverState === "interactive" ? 2 : 1,
-            rotate: hoverState === "interactive" ? 45 : 0,
+            scale: hoverState === "interactive" ? 1.5 : 0.8,
+            opacity: hoverState === "interactive" ? 0.4 : 0.2,
+          }}
+          transition={{ type: "spring", damping: 20, stiffness: 200 }}
+        />
+
+        {/* Core Dot */}
+        <motion.div
+          className="w-1.5 h-1.5 bg-white rounded-full shadow-[0_0_10px_rgba(255,255,255,0.8)]"
+          animate={{
+            scale: hoverState === "interactive" ? 0.5 : 1,
           }}
         />
-        
-        {/* Cardinal Spikes */}
-        {[0, 90, 180, 270].map((rot) => (
-          <motion.div
-            key={rot}
-            className="absolute w-4 h-[1px] bg-white/40"
-            style={{ rotate: rot, translateX: "100%" }}
-            animate={{
-              scaleX: hoverState === "interactive" ? 1.5 : 1,
-            }}
-          />
-        ))}
       </motion.div>
 
-      {/* Trail Frames (Simulated with simple delay) */}
+      {/* Smooth Trail */}
       <motion.div
-        className="fixed top-0 left-0 w-1 h-1 bg-white/20 rounded-full blur-[2px]"
+        className="fixed top-0 left-0 w-1 h-1 bg-gold/30 rounded-full blur-[1px]"
         style={{
-          x: useSpring(mouseX, { damping: 40, stiffness: 400 }),
-          y: useSpring(mouseY, { damping: 40, stiffness: 400 }),
+          x: useSpring(mouseX, { damping: 45, stiffness: 450 }),
+          y: useSpring(mouseY, { damping: 45, stiffness: 450 }),
           translateX: "-50%",
           translateY: "-50%",
         }}
