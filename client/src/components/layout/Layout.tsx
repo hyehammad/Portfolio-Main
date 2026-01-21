@@ -11,6 +11,9 @@ export function Layout({ children }: LayoutProps) {
       {/* Morphing Background Layer */}
       <div className="morphing-bg" />
       
+      {/* Matte Texture Layer */}
+      <div className="matte-texture" />
+
       {/* Grain Overlay */}
       <div className="grain-overlay" />
       

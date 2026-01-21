@@ -11,10 +11,10 @@ import { CustomCursor } from "@/components/ui/CustomCursor";
 import { AnimatePresence, motion } from "framer-motion";
 
 const sectionColors: Record<string, string> = {
-  home: "#1a1412",    // Espresso
-  about: "#231a17",   // Roasted Bean
+  home: "#1a1412",    // Deep Espresso
+  about: "#24261d",   // Warm Olive
   skills: "#2d2420",  // Dark Sepia
-  projects: "#261e1b", // Mahogany Shade
+  projects: "#12161a", // Deep Navy
   contact: "#1a1412", // Espresso
 };
 
