@@ -1,0 +1,215 @@
+Core Concept: Classified Intelligence Board
+Design a project gallery that mimics an intelligence agency's classified dossier wall. Initially, all projects are displayed as encrypted, vertical data slits - minimal, enigmatic, and mysterious. When a user hovers over a project, it undergoes a cinematic declassification sequence where the slit expands into a full intelligence dossier, revealing detailed project information while other entries temporarily fade into the background.
+
+Initial State: The Encrypted Wall
+Visual: Projects appear as slender vertical strips (40px wide × 400px tall)
+
+Orientation: Each strip is tilted 5-10 degrees at alternating angles (like shuffled cards)
+
+Text Display: Project titles are written vertically, rotated 90°, using a monospaced, technical font (like "PROJECT-001" or "OPERATION NOVA")
+
+Surface Texture: Each slit has a subtle brushed metal or paper texture with minimal color variation
+
+Ambient Effects:
+
+Faint data stream running vertically along each slit (like matrix code)
+
+Interference lines (like old monitor static) at 2% opacity
+
+Edge glow that pulses subtly (3-second cycle)
+
+Arrangement: Slits are arranged in a staggered, asymmetrical formation (not a perfect grid)
+
+Atmosphere: Feels like peeking at classified files through narrow windows
+
+Hover Interaction: Declassification Sequence
+Phase 1: Authentication (0-150ms)
+Visual: Target slit vibrates slightly (2px amplitude)
+
+Audio Cue (Conceptual): Soft "click" or "authentication beep"
+
+Effect: A digital scan line sweeps vertically down the slit
+
+Color: Slit's edge glows brighter in its unique accent color
+
+Phase 2: Decryption & Rotation (150-400ms)
+Text Transformation:
+
+Vertical text rotates smoothly from 90° to 0° (horizontal)
+
+During rotation, characters undergo a digital glitch effect (like decrypting in real-time)
+
+Text morphs from coded format ("PRJ-001") to actual project name ("Nova Financial")
+
+Visual Feedback: Hexadecimal numbers briefly flash around the text during rotation
+
+Phase 3: Expansion & Unfolding (400-800ms)
+Mechanics: The slit unfolds like a classified dossier (not just scales)
+
+Left edge expands first, then right
+
+Creates a paper/document unfolding effect with subtle corner curl
+
+Dimensional Layers Reveal in Sequence:
+
+Background Layer: Deep color field fades in
+
+Texture Layer: Paper/canvas texture appears
+
+Image Layer: Hero visual fades in with parallax depth
+
+Content Layer: Text and UI elements fade in
+
+Cinematic Effect: Artificial letterbox bars appear top/bottom (like widescreen movie) during expansion, then fade
+
+Phase 4: Intelligence Display (800-1200ms)
+Card Structure Reveal (from top to bottom):
+
+Classification Stamp (e.g., "CONFIDENTIAL", "TOP SECRET") appears with redaction tape effect
+
+Project Title with animated underline (draws from center outward)
+
+Mission Statement fades in (1-2 lines, typewriter effect)
+
+Tech Stack Badges "drop" into place from top
+
+Key Metrics appear with animated counters
+
+Action Buttons slide in from sides
+
+Depth Effect: Card has multiple Z-layers with subtle parallax on mouse movement
+
+Phase 5: Ambient Response (1200ms+)
+Lighting: Card emits volumetric light that softly illuminates surrounding area
+
+Particles: Data particles float up from card edges
+
+Sound Design (Concept): Ambient hum, distant server sounds
+
+Interactive Elements: Buttons have magnetic hover effect
+
+Non-Hovered Items Behavior
+When one project expands:
+
+Other slits fade to 15-20% opacity
+
+Apply motion blur (3-5px) for depth of field
+
+Retract slightly (scale down to 90%)
+
+Increase rotation angle (become more vertical/tilted)
+
+Visual Priority: Clear focus hierarchy - expanded card is vibrant, others are ghostly
+
+Atmosphere: Feels like spotlight on one document in a dark archive
+
+Enhanced Interactive Details
+1. Intelligence-Style Information Hierarchy:
+Use classification levels as visual hierarchy
+
+Redacted text effect that reveals on hover
+
+Date stamps with typewriter font
+
+Case file numbers in corners
+
+2. Physical Simulation:
+Cards have paper-like physics (slight bend, subtle curl)
+
+Shadow evolution from thin to dramatic
+
+Edge wear texture that's more visible on expansion
+
+Holographic seal effect that appears on certain projects
+
+3. Narrative Elements:
+Each project has a "Mission Objective" section
+
+Challenge/ Solution format with animated reveal
+
+Impact metrics that count up
+
+Testimonial excerpts that fade in
+
+4. Advanced Interactions:
+Click to Expand: Fullscreen dossier view with case study
+
+Keyboard Navigation: Arrow keys move between projects
+
+Quick View: Tap/click outside collapses back to slit view
+
+Swipe Gestures (mobile): Swipe through projects with momentum
+
+Technical Implementation Notes
+Visual Effects Stack:
+CSS 3D Transform for rotation and unfolding
+
+Clip-path Animation for the slit expansion effect
+
+Mix-blend-mode for texture overlays
+
+CSS Grid/ Flexbox for responsive layout
+
+GSAP Timeline for sequenced animations
+
+Custom Shaders (if using WebGL) for advanced texture effects
+
+Performance Optimization:
+Lazy loading for project images
+
+Will-change on hover target only
+
+Transform/opacity only animations
+
+Reduced motion support
+
+Mobile fallback (tap instead of hover)
+
+Visual Design Specifications
+Color & Typography:
+Slit State: Monochromatic, desaturated, low contrast
+
+Expanded State: Full color palette, high contrast, vibrant accents
+
+Font Transition: Technical monospace → Elegant serif/sans-serif
+
+Texture Evolution: Matte/brushed → Glossy/refined
+
+Motion Language:
+Easing: cubic-bezier(0.68, -0.55, 0.265, 1.55) for bouncy, playful
+
+Stagger: 50ms delay between element reveals
+
+Duration: Total animation ~1200ms
+
+Orchestration: Sequential, not simultaneous
+
+Micro-interactions:
+Cursor changes to "classified document" icon
+
+Sound feedback (optional) for authentication, expansion, collapse
+
+Haptic feedback on mobile
+
+Focus rings for accessibility
+
+Success Metrics for This Effect
+Engagement: Users hover over 3+ projects on average
+
+Time Spent: 15+ seconds in project section
+
+Interaction Rate: 80%+ of visitors trigger the effect
+
+Memorability: Users can recall specific project names/visuals
+
+Shareability: "You have to see the project hover effect!"
+
+Inspiration References
+Movies: Mission Impossible dossier scenes, Bond intelligence briefings, Blade Runner data terminals
+
+Games: Deus Ex interface, Watch Dogs hacking UI, Cyberpunk 2077 menus
+
+Real World: Declassified document viewing, Microfiche readers, Security clearance rooms
+
+The goal: Create a project gallery that doesn't just display work, but makes exploring it feel like uncovering classified intelligence. Each project should feel like a secret worth discovering, with the interaction itself telling a story of revelation and insight.
+
