@@ -11,11 +11,11 @@ import { CustomCursor } from "@/components/ui/CustomCursor";
 import { AnimatePresence, motion } from "framer-motion";
 
 const sectionColors: Record<string, string> = {
-  home: "#080808",
-  about: "#0f1514",
-  skills: "#14110f",
-  projects: "#1a0f11",
-  contact: "#080808",
+  home: "#1a1412",    // Espresso
+  about: "#231a17",   // Roasted Bean
+  skills: "#2d2420",  // Dark Sepia
+  projects: "#261e1b", // Mahogany Shade
+  contact: "#1a1412", // Espresso
 };
 
 export default function Home() {

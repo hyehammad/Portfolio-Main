@@ -26,11 +26,12 @@
   --color-input: hsl(var(--input));
   --color-ring: hsl(var(--ring));
 
-  /* Custom Palette - Architectural Noir */
-  --color-noir: #080808;
+  /* Custom Palette - Architectural Noir (Brown/Gold Focus) */
+  --color-noir: #1a1412; /* Deep Espresso Brown instead of pure black */
   --color-ivory: #f2f2f2;
   --color-gold: #c5a059;
   --color-crimson: #8b0000;
+  --color-sepia: #2d2420; /* Mid-tone warm brown */
 
   --radius-none: 0;
   --radius-sm: 2px;
@@ -39,8 +40,8 @@
 }
 
 :root {
-  --bg-color: #080808; /* Default background */
-  --background: 0 0% 3%;      /* Fallback #080808 */
+  --bg-color: #1a1412; /* Deep Espresso Brown */
+  --background: 15 20% 8%;      /* Dark Brown */
   --foreground: 0 0% 95%;     /* #f2f2f2 */
   
   --primary: 40 50% 56%;      /* #c5a059 */
