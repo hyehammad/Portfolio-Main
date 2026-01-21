@@ -55,7 +55,7 @@ export function Contact() {
           <div className="mt-20 pt-10 border-t border-white/5 grid grid-cols-1 md:grid-cols-3 gap-8 text-center">
             <div>
               <span className="block text-[9px] uppercase tracking-widest text-primary mb-2">Location</span>
-              <p className="text-sm font-sans text-muted-foreground">Wapda Town Lahore</p>
+              <p className="text-sm font-sans text-muted-foreground">Wapda Town Lahore, Punjab</p>
             </div>
             <div>
               <span className="block text-[9px] uppercase tracking-widest text-primary mb-2">Email</span>

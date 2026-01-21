@@ -11,7 +11,6 @@ export function Hero() {
           transition={{ duration: 1.5, ease: [0.77, 0, 0.175, 1] }}
           className="mb-8"
         >
-          <span className="font-sans text-[10px] uppercase tracking-[0.5em] text-primary mb-2 block">Portfolio Vol. 01</span>
           <div className="w-12 h-[1px] bg-primary/30 mx-auto" />
         </motion.div>
 
@@ -28,9 +27,9 @@ export function Hero() {
           initial={{ opacity: 0 }}
           animate={{ opacity: 1 }}
           transition={{ delay: 1, duration: 1.5 }}
-          className="text-base md:text-lg font-sans uppercase tracking-[0.4em] text-ivory/60 mb-12 max-w-2xl"
+          className="text-base md:text-lg font-serif italic text-ivory/60 mb-12 max-w-2xl"
         >
-          Wapda Town Lahore, Punjab
+          "The best way to predict the future is to invent it."
         </motion.div>
 
         <motion.div 
