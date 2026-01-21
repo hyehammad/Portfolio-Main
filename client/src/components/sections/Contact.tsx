@@ -41,7 +41,10 @@ export function Contact() {
           className="text-center mb-16"
         >
           <span className="font-sans text-[10px] uppercase tracking-[0.5em] text-[#d4af37] mb-4 block">The Cinematic Epilogue</span>
-          <h2 className="text-5xl md:text-7xl font-serif text-white uppercase tracking-tighter">Director's <span className="italic text-[#d4af37]">Cut</span></h2>
+          <h2 className="text-5xl md:text-7xl font-serif text-white uppercase tracking-tighter">Initiate <span className="italic text-[#d4af37]">Protocol</span></h2>
+          <p className="mt-8 text-muted-foreground max-w-2xl mx-auto font-serif italic text-lg leading-relaxed">
+            "Every great software project begins with a conversation. Whether you're looking to architect a new system, optimize existing code, or explore the intersection of technology and creativity—let's write the first line of our collaboration."
+          </p>
         </motion.div>
 
         {/* Vintage Film Reel Cabinet */}
@@ -92,7 +95,7 @@ export function Contact() {
                     <span className="font-mono text-[10px] text-white/40 uppercase tracking-[0.4em]">KEM-SYSTEM // MOD-01</span>
                     <div className="mt-4 flex items-center gap-4">
                       <div className="w-2 h-2 rounded-full bg-[#d4af37] animate-pulse" />
-                      <span className="text-white text-sm font-sans uppercase tracking-widest">Awaiting Script</span>
+                      <span className="text-white text-sm font-sans uppercase tracking-widest">Awaiting Transmission</span>
                     </div>
                   </motion.div>
                 )}
@@ -113,30 +116,30 @@ export function Contact() {
               >
                 <div className="mb-8 flex justify-between items-end border-b border-white/10 pb-4">
                   <div>
-                    <span className="text-[10px] font-mono text-[#d4af37] uppercase tracking-widest">Project: OUR_COLLABORATION</span>
-                    <h3 className="text-2xl font-serif text-white italic">The Director's Slate</h3>
+                    <span className="text-[10px] font-mono text-[#d4af37] uppercase tracking-widest">Project: COLLABORATION_PROTOCOL</span>
+                    <h3 className="text-2xl font-serif text-white italic">The Secure Slate</h3>
                   </div>
                   <div className="text-right">
-                    <span className="text-[8px] font-mono text-white/40 block uppercase">Roll: 01</span>
-                    <span className="text-[8px] font-mono text-white/40 block uppercase">Take: 01</span>
+                    <span className="text-[8px] font-mono text-white/40 block uppercase">Roll: CS</span>
+                    <span className="text-[8px] font-mono text-white/40 block uppercase">Take: BS</span>
                   </div>
                 </div>
 
                 <form className="space-y-6">
                   <div className="grid grid-cols-2 gap-8">
                     <div className="space-y-1">
-                      <label className="text-[9px] uppercase tracking-widest text-[#d4af37]/60">Director Credit (Name)</label>
-                      <input className="w-full bg-transparent border-b border-white/20 py-2 text-white focus:border-[#d4af37] transition-colors outline-none font-sans" placeholder="Enter Name..." />
+                      <label className="text-[9px] uppercase tracking-widest text-[#d4af37]/60">Your Identity</label>
+                      <input className="w-full bg-transparent border-b border-white/20 py-2 text-white focus:border-[#d4af37] transition-colors outline-none font-sans" placeholder="Enter Designation..." />
                     </div>
                     <div className="space-y-1">
-                      <label className="text-[9px] uppercase tracking-widest text-[#d4af37]/60">Studio Contact (Email)</label>
+                      <label className="text-[9px] uppercase tracking-widest text-[#d4af37]/60">Secure Channel</label>
                       <input className="w-full bg-transparent border-b border-white/20 py-2 text-white focus:border-[#d4af37] transition-colors outline-none font-sans" placeholder="Enter Email..." />
                     </div>
                   </div>
 
                   <div className="space-y-1">
-                    <label className="text-[9px] uppercase tracking-widest text-[#d4af37]/60">Script Notes (Message)</label>
-                    <textarea className="w-full bg-transparent border-b border-white/20 py-2 text-white focus:border-[#d4af37] transition-colors outline-none font-sans resize-none" rows={3} placeholder="Describe the vision..." />
+                    <label className="text-[9px] uppercase tracking-widest text-[#d4af37]/60">Communication Protocol</label>
+                    <textarea className="w-full bg-transparent border-b border-white/20 py-2 text-white focus:border-[#d4af37] transition-colors outline-none font-sans resize-none" rows={3} placeholder="Transmit initial conditions..." />
                   </div>
 
                   <div className="pt-4 flex items-center justify-between">
@@ -148,23 +151,10 @@ export function Contact() {
                       whileHover={{ scale: 1.05, backgroundColor: "#d4af37", color: "#000" }}
                       className="px-8 py-3 border border-[#d4af37] text-[#d4af37] text-[10px] font-sans font-bold uppercase tracking-[0.3em] transition-all"
                     >
-                      Start Production
+                      ENCRYPT & TRANSMIT →
                     </motion.button>
                   </div>
                 </form>
-
-                {/* Director's Cut Invitation */}
-                {!isDirectorCut && (
-                  <motion.button
-                    initial={{ opacity: 0 }}
-                    animate={{ opacity: 1 }}
-                    transition={{ delay: 1 }}
-                    onClick={(e) => { e.stopPropagation(); setIsDirectorCut(true); }}
-                    className="absolute -bottom-12 left-1/2 -translate-x-1/2 text-[9px] text-[#d4af37] uppercase tracking-[0.4em] hover:text-white transition-colors"
-                  >
-                    + Access Director's Cut
-                  </motion.button>
-                )}
               </motion.div>
             )}
           </AnimatePresence>

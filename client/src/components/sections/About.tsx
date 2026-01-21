@@ -1,81 +1,64 @@
 import { motion } from "framer-motion";
-import { useRef } from "react";
-import { useInView } from "framer-motion";
 
 export function About() {
-  const ref = useRef(null);
-  const isInView = useInView(ref, { once: true, margin: "-100px" });
-
-  const experience = [
-    {
-      role: "Team Lead",
-      company: "Techman Ventures",
-      period: "2022 – 2024",
-      desc: "Architecting high-performance sales strategies for the US market."
-    },
-    {
-      role: "Academic Excellence",
-      company: "Punjab College",
-      period: "2019 – 2021",
-      desc: "Top 0.1% Merit — High School Certificate."
-    }
-  ];
-
   return (
-    <section id="about" className="py-40 relative bg-noir overflow-hidden">
-      <div className="container mx-auto px-8 max-w-6xl relative z-10">
-        <div className="grid grid-cols-1 lg:grid-cols-2 gap-24 items-start">
-          
+    <section id="about" className="py-40 relative min-h-screen flex items-center overflow-hidden px-8">
+      <div className="container mx-auto max-w-6xl">
+        <div className="grid grid-cols-1 lg:grid-cols-2 gap-20 items-center">
           <motion.div
             initial={{ opacity: 0, x: -50 }}
-            animate={isInView ? { opacity: 1, x: 0 } : {}}
-            transition={{ duration: 1.2, ease: [0.77, 0, 0.175, 1] }}
+            whileInView={{ opacity: 1, x: 0 }}
+            transition={{ duration: 1.5, ease: [0.77, 0, 0.175, 1] }}
           >
-            <span className="font-sans text-[10px] uppercase tracking-[0.5em] text-primary mb-6 block">Biography</span>
-            <h2 className="text-5xl md:text-7xl font-serif text-ivory mb-12 leading-tight">
-              Crafting <br/> <span className="italic text-primary">Precision</span> <br/> Through Empathy.
-            </h2>
-            <p className="text-lg text-muted-foreground font-light leading-relaxed mb-12 max-w-md">
-              Hammad Akram is a design engineer focused on building digital products that transcend utility. 
-              By merging leadership skills with technical rigor, I create experiences that resonate.
-            </p>
-            <div className="flex gap-12">
-              <div>
-                <span className="block text-3xl font-serif text-primary mb-1">99%</span>
-                <span className="text-[10px] uppercase tracking-widest text-muted-foreground">Academic Peak</span>
-              </div>
-              <div>
-                <span className="block text-3xl font-serif text-primary mb-1">02+</span>
-                <span className="text-[10px] uppercase tracking-widest text-muted-foreground">Years Leadership</span>
-              </div>
+            <span className="font-sans text-[10px] uppercase tracking-[0.5em] text-primary mb-4 block">The Narrative</span>
+            <h2 className="text-5xl md:text-7xl font-serif text-ivory mb-12">Digital <span className="italic text-primary">Frontier</span></h2>
+            
+            <div className="space-y-8 text-lg font-serif italic text-muted-foreground leading-relaxed">
+              <p>
+                "A Lahore-born computer scientist with a passion for elegant code and compelling user experiences. 
+                My journey from Wapda Town to the digital frontier has been guided by a singular principle: 
+                technology should serve humanity, not the other way around."
+              </p>
+              <p className="text-base font-sans not-italic text-ivory/80">
+                "I believe exceptional software is built at the intersection of three disciplines: 
+                the rigor of computer science, the empathy of user-centered design, and the narrative power of storytelling."
+              </p>
             </div>
           </motion.div>
 
-          <div className="space-y-12" ref={ref}>
-            {experience.map((item, index) => (
+          <div className="space-y-12">
+            {[
+              {
+                year: "2019-2021",
+                title: "Punjab College Sahiwal",
+                desc: "Honored as district runner-up with 99%, where mathematical precision met creative problem-solving, foreshadowing my approach to software development."
+              },
+              {
+                year: "2017-2019",
+                title: "Govt High School | Farooka",
+                desc: "Laid the foundation of analytical thinking, graduating second in my class with a 96% score—not just numbers, but the beginning of a pattern-seeking mind."
+              },
+              {
+                year: "2024",
+                title: "IELTS 6.5",
+                desc: "Mastering technical communication in global contexts, ensuring code speaks clearly across cultures and teams."
+              }
+            ].map((item, i) => (
               <motion.div
-                key={index}
+                key={i}
                 initial={{ opacity: 0, y: 30 }}
-                animate={isInView ? { opacity: 1, y: 0 } : {}}
-                transition={{ delay: 0.3 + (index * 0.2), duration: 1, ease: [0.77, 0, 0.175, 1] }}
-                className="group border-b border-white/10 pb-12"
+                whileInView={{ opacity: 1, y: 0 }}
+                transition={{ delay: i * 0.2, duration: 1 }}
+                className="group relative pl-8 border-l border-white/10 hover:border-primary/50 transition-colors"
               >
-                <div className="flex justify-between items-baseline mb-4">
-                  <h4 className="text-xl font-sans tracking-wide text-ivory group-hover:text-primary transition-colors">{item.role}</h4>
-                  <span className="text-[10px] font-mono text-muted-foreground">{item.period}</span>
-                </div>
-                <span className="text-sm text-primary mb-4 block uppercase tracking-widest">{item.company}</span>
-                <p className="text-muted-foreground font-light">{item.desc}</p>
+                <div className="absolute left-0 top-0 w-[2px] h-0 group-hover:h-full bg-primary transition-all duration-700" />
+                <span className="text-[10px] font-mono text-primary uppercase tracking-widest">{item.year}</span>
+                <h4 className="text-xl font-serif text-ivory mt-2 mb-4">{item.title}</h4>
+                <p className="text-sm font-sans text-muted-foreground/80 leading-relaxed">{item.desc}</p>
               </motion.div>
             ))}
           </div>
-
         </div>
-      </div>
-      
-      {/* Background Decorative Text */}
-      <div className="absolute top-0 right-0 translate-x-1/3 -translate-y-1/3 text-[20vw] font-serif font-bold text-white/[0.02] pointer-events-none select-none italic">
-        Story
       </div>
     </section>
   );

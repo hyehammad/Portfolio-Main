@@ -16,47 +16,47 @@ interface Project {
 const projects: Project[] = [
   {
     id: 1,
-    title: "Nova Financial",
-    code: "OPERATION-NOVA",
-    category: "FinTech Architecture",
-    desc: "A high-security financial platform designed for global transactions.",
-    mission: "Establish a decentralized, unhackable ledger system for tier-1 bank operations.",
+    title: "Data Alchemy Suite",
+    code: "OPERATION-ALCHEMY",
+    category: "Data Visualization Suite",
+    desc: "Transforming complex datasets into intuitive, interactive visualizations.",
+    mission: "Where data alchemy meets user experience—creating clarity from chaos.",
     color: "#c5a059",
     image: "https://images.unsplash.com/photo-1618005182384-a83a8bd57fbe?q=80&w=2564&auto=format&fit=crop",
-    tech: ["React", "Rust", "Web3"]
+    tech: ["Python", "React", "D3.js"]
   },
   {
     id: 2,
-    title: "Vertex Intel",
-    code: "PROJECT-VERTEX",
-    category: "Data Alchemy",
-    desc: "Advanced intelligence board for real-time strategic data visualization.",
-    mission: "Transform raw satellite data into actionable intelligence in under 500ms.",
+    title: "AI Coding Assistant",
+    code: "PROJECT-AUGMENT",
+    category: "AI-Augmented Tools",
+    desc: "Building intelligent coding assistants that understand context.",
+    mission: "Reducing development time while improving code quality through machine intelligence.",
     color: "#5a7d7a",
     image: "https://images.unsplash.com/photo-1551288049-bebda4e38f71?q=80&w=2670&auto=format&fit=crop",
-    tech: ["Python", "Three.js", "AI"]
+    tech: ["Python", "OpenAI", "VS Code API"]
   },
   {
     id: 3,
-    title: "Aegis Shield",
-    code: "AEGIS-ZERO",
-    category: "Cyber Defense",
-    desc: "Next-gen encryption protocols for secure governmental communication.",
-    mission: "Protect critical infrastructure from quantum-level decryption attacks.",
+    title: "Nexus Bridge",
+    code: "COMM-NEXUS",
+    category: "Communication Platforms",
+    desc: "Architecting systems that bridge technical and non-technical stakeholders.",
+    mission: "Elegant interfaces and clear data presentation for seamless collaboration.",
     color: "#8b0000",
     image: "https://images.unsplash.com/photo-1518770660439-4636190af475?q=80&w=2670&auto=format&fit=crop",
-    tech: ["C++", "Security", "Crypto"]
+    tech: ["React", "WebSockets", "Node.js"]
   },
   {
     id: 4,
-    title: "Digital Ghost",
-    code: "GHOST-PROTOCOL",
-    category: "Espionage Tech",
-    desc: "Stealth digital presence management for high-profile assets.",
-    mission: "Anonymize digital footprints across global networks with zero trace.",
+    title: "Ninja Optimizer",
+    code: "NINJA-PROTOCOL",
+    category: "Performance Systems",
+    desc: "Creating tools that identify and resolve performance bottlenecks.",
+    mission: "Applying cold-call ninja persistence to debugging and system optimization.",
     color: "#8a9b76",
     image: "https://images.unsplash.com/photo-1550751827-4bd374c3f58b?q=80&w=2670&auto=format&fit=crop",
-    tech: ["Go", "Networking", "VPN"]
+    tech: ["Go", "eBPF", "Grafana"]
   }
 ];
 

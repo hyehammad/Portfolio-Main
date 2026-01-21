@@ -5,6 +5,13 @@ export function Preloader({ onComplete }: { onComplete: () => void }) {
   const [percent, setPercent] = useState(0);
   const [stage, setStage] = useState(0);
 
+  const loadingMessages = [
+    "Initializing cinematic experience...",
+    "Compiling visual assets...",
+    "Rendering interactive elements...",
+    "System ready. Begin exploration."
+  ];
+
   useEffect(() => {
     const interval = setInterval(() => {
       setPercent(prev => {
@@ -34,7 +41,6 @@ export function Preloader({ onComplete }: { onComplete: () => void }) {
       exit={{ y: "-100%" }}
       transition={{ duration: 1.2, ease: [0.77, 0, 0.175, 1] }}
     >
-      {/* Background Text (Architectural) */}
       <motion.div
         initial={{ opacity: 0, scale: 1.2 }}
         animate={{ opacity: 0.03, scale: 1 }}
@@ -45,7 +51,6 @@ export function Preloader({ onComplete }: { onComplete: () => void }) {
       </motion.div>
 
       <div className="relative flex flex-col items-center">
-        {/* Central Logo / Name */}
         <div className="overflow-hidden mb-4">
           <motion.h1
             initial={{ y: "100%" }}
@@ -57,7 +62,6 @@ export function Preloader({ onComplete }: { onComplete: () => void }) {
           </motion.h1>
         </div>
 
-        {/* Loading Bar */}
         <div className="w-48 h-[1px] bg-white/10 relative overflow-hidden">
           <motion.div 
             className="absolute top-0 left-0 h-full bg-primary"
@@ -68,15 +72,15 @@ export function Preloader({ onComplete }: { onComplete: () => void }) {
         </div>
         
         <motion.span 
+          key={percent}
           initial={{ opacity: 0 }}
           animate={{ opacity: 1 }}
           className="mt-4 font-sans text-[10px] uppercase tracking-[0.4em] text-muted-foreground"
         >
-          {percent}% Loading Experience
+          {percent}% {loadingMessages[Math.floor((percent / 100) * (loadingMessages.length - 1))]}
         </motion.span>
       </div>
 
-      {/* Cinematic Flash Overlay */}
       <AnimatePresence>
         {stage === 2 && (
           <motion.div 
@@ -88,31 +92,10 @@ export function Preloader({ onComplete }: { onComplete: () => void }) {
         )}
       </AnimatePresence>
 
-      {/* Corner Accents */}
-      <motion.div 
-        initial={{ opacity: 0 }}
-        animate={{ opacity: 1 }}
-        transition={{ delay: 0.5 }}
-        className="absolute top-12 left-12 w-8 h-8 border-t border-l border-white/20" 
-      />
-      <motion.div 
-        initial={{ opacity: 0 }}
-        animate={{ opacity: 1 }}
-        transition={{ delay: 0.6 }}
-        className="absolute top-12 right-12 w-8 h-8 border-t border-r border-white/20" 
-      />
-      <motion.div 
-        initial={{ opacity: 0 }}
-        animate={{ opacity: 1 }}
-        transition={{ delay: 0.7 }}
-        className="absolute bottom-12 left-12 w-8 h-8 border-b border-l border-white/20" 
-      />
-      <motion.div 
-        initial={{ opacity: 0 }}
-        animate={{ opacity: 1 }}
-        transition={{ delay: 0.8 }}
-        className="absolute bottom-12 right-12 w-8 h-8 border-b border-r border-white/20" 
-      />
+      <motion.div initial={{ opacity: 0 }} animate={{ opacity: 1 }} transition={{ delay: 0.5 }} className="absolute top-12 left-12 w-8 h-8 border-t border-l border-white/20" />
+      <motion.div initial={{ opacity: 0 }} animate={{ opacity: 1 }} transition={{ delay: 0.6 }} className="absolute top-12 right-12 w-8 h-8 border-t border-r border-white/20" />
+      <motion.div initial={{ opacity: 0 }} animate={{ opacity: 1 }} transition={{ delay: 0.7 }} className="absolute bottom-12 left-12 w-8 h-8 border-b border-l border-white/20" />
+      <motion.div initial={{ opacity: 0 }} animate={{ opacity: 1 }} transition={{ delay: 0.8 }} className="absolute bottom-12 right-12 w-8 h-8 border-b border-r border-white/20" />
     </motion.div>
   );
 }
