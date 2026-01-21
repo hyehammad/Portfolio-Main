@@ -75,7 +75,6 @@ export function Projects() {
           <h2 className="text-4xl md:text-6xl font-serif text-ivory">Classified <span className="italic text-primary">Dossiers</span></h2>
         </motion.div>
 
-        {/* Improved Spacing Container */}
         <div className="flex flex-wrap lg:flex-nowrap items-center justify-center lg:justify-start gap-12 lg:gap-8 relative min-h-[600px] lg:h-[500px]">
           {projects.map((project, index) => {
             const isHovered = hoveredId === project.id;
@@ -93,7 +92,6 @@ export function Projects() {
                   opacity: isAnyHovered && !isHovered ? 0.1 : 1,
                   scale: isAnyHovered && !isHovered ? 0.9 : 1,
                   zIndex: isHovered ? 50 : 1,
-                  x: isHovered ? 0 : 0
                 }}
                 transition={{ 
                   duration: 0.8, 
@@ -104,7 +102,6 @@ export function Projects() {
                   ${!isHovered ? 'flex items-center justify-center' : ''}
                 `}
               >
-                {/* Initial Vertical Slit State */}
                 <AnimatePresence mode="wait">
                   {!isHovered && (
                     <motion.div 
@@ -129,7 +126,6 @@ export function Projects() {
                     </motion.div>
                   )}
 
-                  {/* Expanded Dossier State */}
                   {isHovered && (
                     <motion.div 
                       key="dossier"
@@ -139,7 +135,6 @@ export function Projects() {
                       transition={{ duration: 0.5 }}
                       className="absolute inset-0 flex flex-col md:flex-row h-full w-full"
                     >
-                      {/* Image Layer */}
                       <div className="w-full md:w-2/5 h-48 md:h-full relative overflow-hidden">
                         <motion.div 
                           initial={{ scale: 1.1, opacity: 0 }}
@@ -151,7 +146,6 @@ export function Projects() {
                         <div className="absolute inset-0 bg-gradient-to-r from-noir via-transparent to-transparent" />
                       </div>
 
-                      {/* Content Layer */}
                       <div className="flex-1 p-10 flex flex-col justify-center relative bg-noir/80 backdrop-blur-md">
                         <motion.div 
                           initial={{ y: -20, opacity: 0 }}
@@ -189,7 +183,7 @@ export function Projects() {
                             <p className="text-base text-ivory/90 font-light italic border-l-2 border-primary/40 pl-6 leading-relaxed">
                               "{project.mission}"
                             </p>
-                          </div>
+                          </motion.div>
 
                           <motion.div 
                             initial={{ opacity: 0 }}
