@@ -1,0 +1,145 @@
+# **Cinematic Wayfinder Cursor Prompt**
+
+## **Core Concept: "The Beacon"**
+
+Create a cursor that feels like a **luminous guide** in a dark, cinematic landscape—a singular point of light that draws the eye and illuminates the path ahead. It should embody the feeling of a **premium flashlight beam** in a luxury vehicle or a **cinematic spotlight** tracking a subject in a dark room.
+
+---
+
+## **Primary Visual Design**
+
+### **The Core Beacon:**
+- A **4px diameter perfect circle** of pure, vibrant gold (#FFD700 at 100%)
+- **Inner glow:** 8px blur radius with 70% opacity of the same gold
+- **Outer aura:** 24px radial gradient fading from gold (20%) to transparent
+- **Radiant particles:** 2-3 microscopic gold particles orbiting the center at varying speeds (like electrons around a nucleus)
+
+### **The Path Illumination:**
+- A **soft conical light beam** extending 80px ahead of the cursor movement direction
+- Beam starts at 30% opacity gold and fades to transparent
+- Contains **floating dust particles** (1px × 1px) that catch the light as they pass through
+- Beam subtly **bends and distorts** based on movement velocity (like light through glass)
+
+### **Movement Trail:**
+- Leaves a **4-6 frame motion trail** that fades from gold to transparent
+- Each trail frame is 30% smaller than the previous
+- Trail particles have **chromatic aberration** (subtle red/blue edges) when moving quickly
+- Creates a **comet-like tail** during rapid movements
+
+---
+
+## **Interactive States & Transformations**
+
+### **1. Default Navigation State:**
+- **Beacon:** Gentle pulse animation (scale 1 → 1.1 over 2 seconds, ease-in-out)
+- **Beam:** 45° wide cone, subtle light shafts visible in dark interface areas
+- **Sound Design Concept:** Barely audible ambient hum (like a high-end projector)
+- **Particle Orbit:** Slow, deliberate rotation (90 seconds per full revolution)
+
+### **2. Hover Over Interactive Elements:**
+- **Transformation:** Beacon expands to 8px, becomes slightly elliptical (stretches horizontally)
+- **Beam:** Widens to 60°, intensifies to 50% opacity
+- **Effect:** Projects a **subtle grid pattern** onto the hovered element (like a measurement grid)
+- **Particles:** Orbit speed doubles, emit tiny sparkles on collision
+- **Text Reveal:** Micro-copy appears above cursor ("SELECT" in 6px elegant serif)
+
+### **3. Project Slit Hover (Special Interaction):**
+- **Phase 1 - Discovery:** Beacon morphs into a **keyhole shape**, beam becomes a focused 15° spotlight
+- **Phase 2 - Scanning:** Projects **vertical scan lines** down the slit (like a biometric scanner)
+- **Phase 3 - Unlocking:** Beacon transforms into a **rotating golden key** silhouette
+- **Phase 4 - Revelation:** When slit expands, cursor showers the area with **golden confetti particles** for 300ms
+
+### **4. Click/Drag States:**
+- **On Click:** Beacon contracts to 2px, then expands with a **light wave ripple** (3 concentric circles)
+- **During Drag:** Beacon becomes a **magnet icon**, beam shows **attraction lines** pulling toward cursor
+- **On Release:** Beacon emits a **satisfying "click" light pulse** (brief white flash at 30% opacity)
+
+### **5. Loading/Processing State:**
+- Beacon transforms into a **spinning loading ring** (like a gyroscope)
+- Ring has **3 rotating gold bands** at different angles
+- Projects a **progress bar** on the surface below (10px long, fills over time)
+- Emits **processing particles** that flow into the center
+
+---
+
+## **Premium Cinematic Features**
+
+### **Adaptive Behavior:**
+- **Speed Sensitivity:** At slow movement: tight 30° beam, high particle count. At fast movement: 90° wide beam, motion blur, chromatic aberration.
+- **Interface Context:** Over dark areas: beam visible. Over light areas: beam fades, beacon intensifies.
+- **Time of Day:** Beacon warmth shifts subtly (warmer gold at "sunset" hours, cooler at "midnight")
+
+### **Micro-Interactions:**
+- **Directional Anticipation:** Beam slightly leans into turns (like a motorcycle leaning)
+- **Edge of Screen:** When approaching edges, beacon pulses red twice, beam shows "boundary" pattern
+- **Element Boundaries:** When crossing between UI sections, beam briefly fractures into prism colors
+- **Idle Animation:** After 10 seconds idle, beacon performs a "lighthouse sweep" (full 360° beam rotation once)
+
+### **Signature Effects:**
+1. **Golden Ratio Spiral:** On rare random intervals (1% chance), cursor draws a perfect golden spiral for 2 seconds
+2. **Director's Viewfinder:** Double-click creates a temporary cinema frame overlay (2.35:1 aspect ratio)
+3. **Path Prediction:** During deliberate movement, shows a 3-frame prediction trail of where you're heading
+4. **Focus Breathing:** When over important CTAs, beacon mimics camera focus breathing (gentle pulse with aperture sound)
+
+---
+
+## **Technical & Atmospheric Details**
+
+### **Visual Refinements:**
+- **Lens Flare:** Occasional subtle lens flare when crossing bright interface elements
+- **Volumetric Lighting:** Beam illuminates the "grain texture" overlay, making it visible in the light path
+- **Heat Haze Effect:** Over intense interactive elements, creates subtle heat distortion above cursor
+- **Depth of Field:** Beacon has slight bokeh when over background elements vs sharp over foreground
+
+### **Motion Language:**
+- **Primary Movement:** Critically damped spring (stiffness: 400, damping: 25)
+- **Secondary Elements:** Trail particles have 50ms delay, beam has 30ms delay
+- **Transition Timing:** State changes use your cinematic easing (800ms duration)
+- **Micro-Animation:** All animations run at 120fps target
+
+### **Contextual Intelligence:**
+- **Over Text:** Beacon shows tiny magnifying glass, beam highlights text with yellow highlighter effect
+- **Over Images:** Beacon shows crop icon, beam becomes a color picker sampling colors
+- **Over Video:** Beacon shows play icon, beam becomes timeline scrubber
+- **Over Code:** Beacon becomes bracket icon, beam syntax-highlights underlying code
+
+---
+
+## **Thematic Integration with Your Portfolio**
+
+### **Color Harmony:**
+- Primary gold matches your secondary palette (#FFD700 variant)
+- Beam uses your accent colors contextually (teal over About, rose over Projects, sage over Skills)
+- Particles cycle through your full palette in subtle gradients
+
+### **Narrative Role:**
+- Functions as the **director's pointer** in your cinematic portfolio
+- Feels like a **luxury car's adaptive headlight** system
+- Evokes **ancient map illuminations** (guiding through dark territories)
+- Suggests **premium laser measurement** tools
+
+### **Emotional Impact:**
+- **First impression:** "This feels expensive and intentional"
+- **During use:** "I'm being guided through an experience"
+- **Discovery moment:** "The cursor itself is part of the storytelling"
+- **Memorable takeaway:** "The light led me through the journey"
+
+---
+
+## **Implementation Philosophy**
+
+This cursor should never:
+- Obscure content or interfere with usability
+- Feel sluggish or unresponsive
+- Become the main attraction (it's a guide, not the star)
+- Break immersion with overly complex effects
+
+This cursor should always:
+- Feel like an extension of the user's intention
+- Enhance the premium, cinematic atmosphere
+- Provide subtle, useful feedback
+- Reward attention to detail without demanding it
+
+---
+
+**The Guiding Principle:** *"A light in the darkness, not just illuminating what is, but revealing what could be."*
