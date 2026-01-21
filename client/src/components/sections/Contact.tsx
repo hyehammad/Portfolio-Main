@@ -3,33 +3,34 @@ import { useState } from "react";
 
 export function Contact() {
   const [isOpen, setIsOpen] = useState(false);
+  const [isDirectorCut, setIsDirectorCut] = useState(false);
 
   return (
     <section id="contact" className="py-40 relative min-h-screen flex items-center justify-center overflow-hidden">
-      {/* Background: 19th Century Botanical Manuscript */}
-      <div className="absolute inset-0 z-0 bg-[#f5f0e6] overflow-hidden">
-        {/* Paper Texture & Aging */}
-        <div className="absolute inset-0 opacity-40 bg-[url('https://www.transparenttextures.com/patterns/handmade-paper.png')]" />
+      {/* Background: Studio Editing Wall */}
+      <div className="absolute inset-0 z-0 bg-[#1a1c25]">
+        {/* Gradient Mesh */}
+        <div className="absolute inset-0 bg-gradient-to-tr from-[#1a1c25] via-transparent to-[#d4af37]/20 opacity-40" />
         
-        {/* Chain Lines & Foxing */}
-        <div className="absolute inset-0 opacity-10 bg-[linear-gradient(90deg,transparent_0%,transparent_98%,#000_100%)] bg-[size:40px_100%]" />
-        <div className="absolute inset-0 pointer-events-none">
-          <div className="absolute top-20 left-40 w-4 h-4 rounded-full bg-[#8b4513] blur-xl opacity-20" />
-          <div className="absolute bottom-40 right-60 w-8 h-8 rounded-full bg-[#5d4037] blur-2xl opacity-10" />
+        {/* Film Flicker & Grain */}
+        <div className="absolute inset-0 opacity-[0.03] pointer-events-none mix-blend-screen bg-[url('https://www.transparenttextures.com/patterns/handmade-paper.png')]" />
+        <motion.div 
+          animate={{ opacity: [0.01, 0.03, 0.01] }}
+          transition={{ repeat: Infinity, duration: 0.1 }}
+          className="absolute inset-0 bg-white pointer-events-none" 
+        />
+
+        {/* Storyboard Thumbnails (Faded) */}
+        <div className="absolute top-20 left-10 w-64 h-auto opacity-10 space-y-4 pointer-events-none">
+          {[1, 2, 3].map(i => (
+            <div key={i} className="aspect-video bg-white/20 border border-white/10" />
+          ))}
+          <span className="text-[8px] font-mono text-white/40 block">SCENE_STORYBOARD</span>
         </div>
 
-        {/* Botanical Illustrations (Faded) */}
-        <div className="absolute top-20 right-20 w-96 h-96 opacity-10 grayscale pointer-events-none">
-          <img src="https://images.unsplash.com/photo-1533038590840-1cde6e668a91?q=80&w=1000&auto=format&fit=crop" alt="Botanical" className="w-full h-full object-contain" />
-        </div>
-
-        {/* Archival Details */}
-        <div className="absolute bottom-12 left-1/2 -translate-x-1/2 font-serif text-[#5d4037] opacity-40 text-xs tracking-[0.3em]">
-          Folio CXXIV
-        </div>
-        <div className="absolute top-12 left-12 border-2 border-[#8b0000]/20 rounded-full w-20 h-20 flex items-center justify-center text-[#8b0000]/20 font-serif text-[8px] rotate-[-15deg] uppercase tracking-tighter text-center leading-none">
-          Cabinet des<br/>Estampes
-        </div>
+        {/* Spotlight Pools */}
+        <div className="absolute top-1/4 left-1/4 w-96 h-96 bg-[#d4af37]/5 blur-[120px] rounded-full" />
+        <div className="absolute bottom-1/4 right-1/4 w-96 h-96 bg-[#d4af37]/5 blur-[120px] rounded-full" />
       </div>
 
       <div className="container mx-auto px-8 relative z-10 flex flex-col items-center">
@@ -39,121 +40,145 @@ export function Contact() {
           viewport={{ once: true }}
           className="text-center mb-16"
         >
-          <span className="font-sans text-[10px] uppercase tracking-[0.5em] text-[#5d4037] mb-4 block">Correspondence</span>
-          <h2 className="text-5xl md:text-7xl font-serif text-[#2c1810]">Get in <span className="italic text-[#8b4513]">Touch</span></h2>
+          <span className="font-sans text-[10px] uppercase tracking-[0.5em] text-[#d4af37] mb-4 block">The Cinematic Epilogue</span>
+          <h2 className="text-5xl md:text-7xl font-serif text-white uppercase tracking-tighter">Director's <span className="italic text-[#d4af37]">Cut</span></h2>
         </motion.div>
 
-        {/* Victorian Writing Slope Box */}
+        {/* Vintage Film Reel Cabinet */}
         <motion.div
           onMouseEnter={() => setIsOpen(true)}
           onMouseLeave={() => setIsOpen(false)}
           animate={{
             y: isOpen ? -20 : 0,
-            scale: isOpen ? 1.02 : 1,
+            scale: isOpen ? 1.05 : 1,
           }}
-          transition={{ duration: 0.8, ease: [0.645, 0.045, 0.355, 1] }}
-          className="relative w-full max-w-2xl aspect-[3/2] cursor-pointer"
+          transition={{ duration: 0.8, ease: [0.77, 0, 0.175, 1] }}
+          className="relative w-full max-w-3xl aspect-video cursor-pointer"
         >
-          {/* Closed Box State */}
-          <div className="absolute inset-0 bg-[#3d2b1f] rounded-sm shadow-2xl border-4 border-[#2c1810] overflow-hidden group">
-            <div className="absolute inset-0 bg-[url('https://www.transparenttextures.com/patterns/dark-wood.png')] opacity-60" />
-            <div className="absolute top-0 left-0 w-full h-2 bg-white/5" />
+          {/* Cabinet Body */}
+          <div className="absolute inset-0 bg-[#2a2d3a] border-2 border-white/10 rounded-sm shadow-[0_0_50px_rgba(0,0,0,0.5)] overflow-hidden">
+            <div className="absolute inset-0 bg-[url('https://www.transparenttextures.com/patterns/brushed-alum.png')] opacity-20" />
             
-            {/* Brass Corners */}
-            <div className="absolute top-0 left-0 w-8 h-8 border-t-4 border-l-4 border-[#c5a059] opacity-40 group-hover:opacity-100 transition-opacity" />
-            <div className="absolute top-0 right-0 w-8 h-8 border-t-4 border-r-4 border-[#c5a059] opacity-40 group-hover:opacity-100 transition-opacity" />
-            <div className="absolute bottom-0 left-0 w-8 h-8 border-b-4 border-l-4 border-[#c5a059] opacity-40 group-hover:opacity-100 transition-opacity" />
-            <div className="absolute bottom-0 right-0 w-8 h-8 border-b-4 border-r-4 border-[#c5a059] opacity-40 group-hover:opacity-100 transition-opacity" />
-            
-            {/* Lock */}
-            <div className="absolute bottom-8 left-1/2 -translate-x-1/2 w-8 h-12 bg-[#c5a059] rounded-t-lg shadow-lg">
-              <div className="absolute top-4 left-1/2 -translate-x-1/2 w-1.5 h-4 bg-black/40 rounded-full" />
+            {/* Modular Reel Slots */}
+            <div className="absolute inset-0 p-12 grid grid-cols-4 gap-8 opacity-40">
+              {[1, 2, 3, 4].map(i => (
+                <div key={i} className="aspect-square rounded-full border-4 border-white/5 flex items-center justify-center">
+                  <div className="w-1/2 h-1/2 rounded-full border border-white/5" />
+                </div>
+              ))}
             </div>
 
             <AnimatePresence>
-              {!isOpen && (
-                <motion.div
-                  key="hint"
-                  initial={{ opacity: 0 }}
-                  animate={{ opacity: 1 }}
-                  exit={{ opacity: 0 }}
-                  className="absolute inset-0 flex items-center justify-center flex-col gap-4"
-                >
-                  <span className="font-serif text-[#c5a059]/40 tracking-[0.2em] uppercase text-xs">Alistair Finch — 1842</span>
-                  <div className="w-12 h-[1px] bg-[#c5a059]/20" />
-                  <motion.div 
-                    animate={{ opacity: [0.2, 0.5, 0.2] }} 
-                    transition={{ repeat: Infinity, duration: 2 }}
-                    className="text-[10px] font-sans text-[#c5a059]/40 uppercase tracking-[0.4em]"
-                  >
-                    Hover to Unlock
-                  </motion.div>
-                </motion.div>
+              {isOpen && (
+                <motion.div 
+                  initial={{ scale: 0, opacity: 0 }}
+                  animate={{ scale: 1, opacity: 1 }}
+                  exit={{ scale: 0, opacity: 0 }}
+                  className="absolute inset-0 bg-gradient-to-tr from-[#d4af37]/10 to-transparent pointer-events-none"
+                />
               )}
             </AnimatePresence>
+
+            <div className="absolute inset-0 flex items-center justify-center flex-col gap-4 z-10">
+              <AnimatePresence mode="wait">
+                {!isOpen && (
+                  <motion.div
+                    key="closed-text"
+                    initial={{ opacity: 0 }}
+                    animate={{ opacity: 1 }}
+                    exit={{ opacity: 0 }}
+                    className="text-center"
+                  >
+                    <span className="font-mono text-[10px] text-white/40 uppercase tracking-[0.4em]">KEM-SYSTEM // MOD-01</span>
+                    <div className="mt-4 flex items-center gap-4">
+                      <div className="w-2 h-2 rounded-full bg-[#d4af37] animate-pulse" />
+                      <span className="text-white text-sm font-sans uppercase tracking-widest">Awaiting Script</span>
+                    </div>
+                  </motion.div>
+                )}
+              </AnimatePresence>
+            </div>
           </div>
 
-          {/* Opened Content (Materializing) */}
+          {/* Opening Mechanism & Form Projection */}
           <AnimatePresence>
             {isOpen && (
               <motion.div
-                key="interior"
-                initial={{ opacity: 0, rotateX: 90 }}
-                animate={{ opacity: 1, rotateX: 0 }}
-                exit={{ opacity: 0, rotateX: 90 }}
-                transition={{ duration: 0.8, ease: [0.77, 0, 0.175, 1] }}
-                style={{ transformOrigin: "top" }}
-                className="absolute inset-0 z-20 bg-[#8b0000] border-4 border-[#2c1810] shadow-2xl p-10 flex flex-col"
+                key="editing-interface"
+                initial={{ opacity: 0, scale: 0.9 }}
+                animate={{ opacity: 1, scale: 1 }}
+                exit={{ opacity: 0, scale: 0.9 }}
+                transition={{ duration: 0.6, ease: [0.77, 0, 0.175, 1] }}
+                className="absolute inset-0 z-20 bg-black/80 backdrop-blur-xl border border-white/20 p-12 flex flex-col justify-center"
               >
-                {/* Crimson Velvet Interior */}
-                <div className="absolute inset-0 bg-[url('https://www.transparenttextures.com/patterns/black-linen-2.png')] opacity-20 mix-blend-overlay" />
-                
-                <div className="relative z-10 flex-1 flex flex-col">
-                  <div className="flex justify-between items-center mb-8">
-                    <span className="font-mono text-[#f2f2f2]/40 text-[10px] uppercase tracking-[0.3em]">Imperial Mail // Correspondence</span>
-                    <div className="w-4 h-4 bg-[#c5a059] rounded-full shadow-[0_0_10px_rgba(197,160,89,0.5)]" />
+                <div className="mb-8 flex justify-between items-end border-b border-white/10 pb-4">
+                  <div>
+                    <span className="text-[10px] font-mono text-[#d4af37] uppercase tracking-widest">Project: OUR_COLLABORATION</span>
+                    <h3 className="text-2xl font-serif text-white italic">The Director's Slate</h3>
                   </div>
-
-                  <form className="space-y-6 flex-1">
-                    <div className="grid grid-cols-2 gap-6">
-                      <div className="space-y-2">
-                        <label className="block text-[10px] uppercase tracking-widest text-[#f2f2f2]/60">Sender Name</label>
-                        <input className="w-full bg-black/20 border-b border-[#c5a059]/30 px-0 py-2 text-ivory focus:border-[#c5a059] outline-none transition-colors font-serif italic" />
-                      </div>
-                      <div className="space-y-2">
-                        <label className="block text-[10px] uppercase tracking-widest text-[#f2f2f2]/60">Email Address</label>
-                        <input className="w-full bg-black/20 border-b border-[#c5a059]/30 px-0 py-2 text-ivory focus:border-[#c5a059] outline-none transition-colors font-serif italic" />
-                      </div>
-                    </div>
-                    
-                    <div className="space-y-2 flex-1">
-                      <label className="block text-[10px] uppercase tracking-widest text-[#f2f2f2]/60">Message Transcript</label>
-                      <textarea className="w-full h-full bg-black/20 border-b border-[#c5a059]/30 px-0 py-2 text-ivory focus:border-[#c5a059] outline-none transition-colors font-serif italic resize-none" rows={4} />
-                    </div>
-
-                    <motion.button 
-                      whileHover={{ scale: 1.02 }}
-                      whileTap={{ scale: 0.98 }}
-                      className="w-full py-4 bg-[#c5a059] text-noir font-sans font-bold uppercase tracking-[0.3em] text-xs shadow-xl"
-                    >
-                      Seal & Send
-                    </motion.button>
-                  </form>
+                  <div className="text-right">
+                    <span className="text-[8px] font-mono text-white/40 block uppercase">Roll: 01</span>
+                    <span className="text-[8px] font-mono text-white/40 block uppercase">Take: 01</span>
+                  </div>
                 </div>
 
-                {/* Golden Corner Accents (Inside) */}
-                <div className="absolute top-4 left-4 w-4 h-4 border-t border-l border-[#c5a059]/40" />
-                <div className="absolute top-4 right-4 w-4 h-4 border-t border-r border-[#c5a059]/40" />
-                <div className="absolute bottom-4 left-4 w-4 h-4 border-b border-l border-[#c5a059]/40" />
-                <div className="absolute bottom-4 right-4 w-4 h-4 border-b border-r border-[#c5a059]/40" />
+                <form className="space-y-6">
+                  <div className="grid grid-cols-2 gap-8">
+                    <div className="space-y-1">
+                      <label className="text-[9px] uppercase tracking-widest text-[#d4af37]/60">Director Credit (Name)</label>
+                      <input className="w-full bg-transparent border-b border-white/20 py-2 text-white focus:border-[#d4af37] transition-colors outline-none font-sans" placeholder="Enter Name..." />
+                    </div>
+                    <div className="space-y-1">
+                      <label className="text-[9px] uppercase tracking-widest text-[#d4af37]/60">Studio Contact (Email)</label>
+                      <input className="w-full bg-transparent border-b border-white/20 py-2 text-white focus:border-[#d4af37] transition-colors outline-none font-sans" placeholder="Enter Email..." />
+                    </div>
+                  </div>
+
+                  <div className="space-y-1">
+                    <label className="text-[9px] uppercase tracking-widest text-[#d4af37]/60">Script Notes (Message)</label>
+                    <textarea className="w-full bg-transparent border-b border-white/20 py-2 text-white focus:border-[#d4af37] transition-colors outline-none font-sans resize-none" rows={3} placeholder="Describe the vision..." />
+                  </div>
+
+                  <div className="pt-4 flex items-center justify-between">
+                    <div className="flex gap-2">
+                      <div className="w-2 h-2 rounded-full bg-red-600 animate-pulse" />
+                      <span className="text-[8px] font-mono text-white/60 uppercase">REC ● LIVE</span>
+                    </div>
+                    <motion.button 
+                      whileHover={{ scale: 1.05, backgroundColor: "#d4af37", color: "#000" }}
+                      className="px-8 py-3 border border-[#d4af37] text-[#d4af37] text-[10px] font-sans font-bold uppercase tracking-[0.3em] transition-all"
+                    >
+                      Start Production
+                    </motion.button>
+                  </div>
+                </form>
+
+                {/* Director's Cut Invitation */}
+                {!isDirectorCut && (
+                  <motion.button
+                    initial={{ opacity: 0 }}
+                    animate={{ opacity: 1 }}
+                    transition={{ delay: 1 }}
+                    onClick={(e) => { e.stopPropagation(); setIsDirectorCut(true); }}
+                    className="absolute -bottom-12 left-1/2 -translate-x-1/2 text-[9px] text-[#d4af37] uppercase tracking-[0.4em] hover:text-white transition-colors"
+                  >
+                    + Access Director's Cut
+                  </motion.button>
+                )}
               </motion.div>
             )}
           </AnimatePresence>
         </motion.div>
       </div>
-      
-      {/* Page Grain Overlay (Contact Specific) */}
-      <div className="absolute inset-0 pointer-events-none z-[1] mix-blend-multiply opacity-10 bg-[url('https://www.transparenttextures.com/patterns/old-map.png')]" />
+
+      {/* Scrubber Timeline */}
+      <div className="absolute bottom-0 left-0 w-full h-1 bg-white/5">
+        <motion.div 
+          animate={{ x: ["-100%", "100%"] }}
+          transition={{ repeat: Infinity, duration: 20, ease: "linear" }}
+          className="w-1/4 h-full bg-[#d4af37]/40" 
+        />
+      </div>
     </section>
   );
 }
