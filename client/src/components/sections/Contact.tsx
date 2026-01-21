@@ -1,7 +1,5 @@
 import { motion, AnimatePresence } from "framer-motion";
 import { useState } from "react";
-import { Input } from "@/components/ui/input";
-import { Textarea } from "@/components/ui/textarea";
 
 export function Contact() {
   const [isOpen, setIsOpen] = useState(false);
@@ -75,6 +73,7 @@ export function Contact() {
             <AnimatePresence>
               {!isOpen && (
                 <motion.div
+                  key="hint"
                   initial={{ opacity: 0 }}
                   animate={{ opacity: 1 }}
                   exit={{ opacity: 0 }}
@@ -98,6 +97,7 @@ export function Contact() {
           <AnimatePresence>
             {isOpen && (
               <motion.div
+                key="interior"
                 initial={{ opacity: 0, rotateX: 90 }}
                 animate={{ opacity: 1, rotateX: 0 }}
                 exit={{ opacity: 0, rotateX: 90 }}
@@ -149,7 +149,7 @@ export function Contact() {
               </motion.div>
             )}
           </AnimatePresence>
-        </div>
+        </motion.div>
       </div>
       
       {/* Page Grain Overlay (Contact Specific) */}
