@@ -45,23 +45,12 @@ export function About() {
             
             <div className="space-y-8 text-lg font-sans text-muted-foreground leading-relaxed">
               <p>
-                Based in Wapda Town Lahore, I am a dedicated professional with a background in leadership and technical excellence. 
-                My focus is on delivering results that combine analytical precision with clear communication.
+                Specializing in bridging the gap between logic and creativity, I architect high-performance digital solutions that balance computational rigor with intuitive design. 
+                My approach treats every project as a unique optimization problem, ensuring code that is as clean as it is effective.
               </p>
-              <div className="pt-8 space-y-4">
-                <div className="flex items-center gap-4">
-                  <span className="text-primary font-mono text-sm">Location:</span>
-                  <span className="text-ivory font-sans">Wapda Town Lahore, Punjab</span>
-                </div>
-                <div className="flex items-center gap-4">
-                  <span className="text-primary font-mono text-sm">Email:</span>
-                  <span className="text-ivory font-sans">hamad.akram70@gmail.com</span>
-                </div>
-                <div className="flex items-center gap-4">
-                  <span className="text-primary font-mono text-sm">Phone:</span>
-                  <span className="text-ivory font-sans">+92 311 6251731</span>
-                </div>
-              </div>
+              <p>
+                I am a dedicated professional with a background in leadership and technical excellence, focusing on delivering production-ready applications that resonate on both technical and human levels.
+              </p>
             </div>
           </motion.div>
 

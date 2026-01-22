@@ -53,13 +53,6 @@ export function Hero() {
         </motion.div>
       </div>
 
-      <div className="hidden lg:block absolute left-12 top-1/2 -translate-y-1/2">
-        <div className="flex flex-col gap-4 text-[10px] font-sans tracking-[0.5em] uppercase text-muted-foreground/30 [writing-mode:vertical-rl] rotate-180">
-          <span>Established 2026</span>
-          <div className="h-20 w-[1px] bg-white/10 mx-auto" />
-          <span>Lahore — Global</span>
-        </div>
-      </div>
     </section>
   );
 }
