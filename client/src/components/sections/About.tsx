@@ -45,11 +45,9 @@ export function About() {
             
             <div className="space-y-8 text-lg font-sans text-muted-foreground leading-relaxed">
               <p>
-                Specializing in bridging the gap between logic and creativity, I architect high-performance digital solutions that balance computational rigor with intuitive design. 
-                My approach treats every project as a unique optimization problem, ensuring code that is as clean as it is effective.
-              </p>
-              <p>
-                I am a dedicated professional with a background in leadership and technical excellence, focusing on delivering production-ready applications that resonate on both technical and human levels.
+              I am a BSCS student at PUCIT with a clear goal of becoming a full-stack developer. I have prior hands-on exposure to web development and a strong foundation in programming.
+                I enjoy building practical solutions, learning modern technologies, and constantly refining my skills. I’m driven by curiosity and a desire to turn ideas into working software.
+              
               </p>
             </div>
           </motion.div>
