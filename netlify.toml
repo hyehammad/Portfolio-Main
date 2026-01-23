@@ -3,8 +3,9 @@
   publish = "dist/public"
 
 [build.processing.node_bundle]
-  # Removed tailwindcss from the list below to allow the build to succeed
+  # We are telling Netlify to skip bundling these problematic files
   ignored_node_modules = ["vite", "@replit/vite-plugin-cartographer"]
+  external_node_modules = ["lightningcss", "esbuild"]
 
 [functions]
   directory = "server"
