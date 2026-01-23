@@ -2,13 +2,13 @@
   command = "npm run build"
   publish = "dist/public"
 
-[build.processing.node_bundle]
-  # We are telling Netlify to skip bundling these problematic files
-  ignored_node_modules = ["vite", "@replit/vite-plugin-cartographer"]
-  external_node_modules = ["lightningcss", "esbuild"]
-
 [functions]
   directory = "server"
+  # This tells Netlify NOT to try and bundle these specific packages
+  external_node_modules = ["lightningcss", "esbuild"]
+
+[build.processing.node_bundle]
+  ignored_node_modules = ["vite", "@replit/vite-plugin-cartographer"]
 
 [[redirects]]
   from = "/*"
