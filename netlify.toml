@@ -1,16 +1,25 @@
 [build]
+  # Runs your build script defined in package.json
   command = "npm run build"
+  # This folder must match what is defined in your vite.config.ts 'outDir'
   publish = "dist/public"
 
 [functions]
+  # Netlify looks here for your backend/serverless functions
   directory = "server"
-  # This tells Netlify NOT to try and bundle these specific packages
+  # Prevents these heavy/binary packages from being bundled into functions
   external_node_modules = ["lightningcss", "esbuild"]
 
 [build.processing.node_bundle]
+  # Specific modules to skip during the bundling process
   ignored_node_modules = ["vite", "@replit/vite-plugin-cartographer"]
 
 [[redirects]]
+  # This ensures your React/Wouter frontend handles all routes
   from = "/*"
   to = "/index.html"
   status = 200
+
+[context.production.environment]
+  # Ensures the build environment matches your production needs
+  NODE_ENV = "production"
