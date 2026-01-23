@@ -2,12 +2,12 @@
   command = "npm run build"
   publish = "dist/public"
 
+[build.processing.node_bundle]
+  # Removed tailwindcss from the list below to allow the build to succeed
+  ignored_node_modules = ["vite", "@replit/vite-plugin-cartographer"]
+
 [functions]
   directory = "server"
-  # This tells Netlify to ignore the build-only files that are causing errors
-  ignored_node_modules = ["vite", "@replit/vite-plugin-cartographer", "tailwindcss"]
-  # This helps with the database driver errors
-  external_node_modules = ["@tailwindcss/oxide", "lightningcss"]
 
 [[redirects]]
   from = "/*"
