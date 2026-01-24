@@ -27,19 +27,6 @@ export function Contact() {
           <form className="space-y-10 text-left">
             <div className="grid grid-cols-1 md:grid-cols-2 gap-10">
               <div className="space-y-2">
-                <label className="text-[10px] uppercase tracking-widest text-primary font-mono">Full Name</label>
-                <input className="w-full bg-transparent border-b border-white/10 py-4 text-white focus:border-primary transition-colors outline-none font-sans" placeholder="Enter your name..." />
-              </div>
-              <div className="space-y-2">
-                <label className="text-[10px] uppercase tracking-widest text-primary font-mono">Email Address</label>
-                <input className="w-full bg-transparent border-b border-white/10 py-4 text-white focus:border-primary transition-colors outline-none font-sans" placeholder="name@email.com" />
-              </div>
-            </div>
-
-            <div className="space-y-2">
-              <label className="text-[10px] uppercase tracking-widest text-primary font-mono">Message</label>
-              <textarea className="w-full bg-transparent border-b border-white/10 py-4 text-white focus:border-primary transition-colors outline-none font-sans resize-none" rows={4} placeholder="How can I help you?" />
-            </div>
 
             <div className="pt-8 flex justify-center">
               <motion.button 
