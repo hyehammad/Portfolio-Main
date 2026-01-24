@@ -42,7 +42,7 @@ export function Contact() {
                   </div>
                 </div>
               <motion.a
-  href="mailto:hamad.akram70@gmail.com?subject=Portfolio%20Inquiry&body=Hello%20Hamad%2C%0A%0AI%20came%20across%20your%20portfolio%20and%20wanted%20to%20get%20in%20touch."
+  href="mailto:hamad.akram70@gmail.com?subject=Portfolio%20contact."
   whileHover={{ scale: 1.05 }}
   whileTap={{ scale: 0.95 }}
   className="px-8 py-3 bg-primary text-black font-medium rounded-lg hover:bg-primary/90 transition-colors flex items-center gap-2 whitespace-nowrap font-sans border border-primary/30 cursor-pointer"
