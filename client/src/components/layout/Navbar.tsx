@@ -56,8 +56,8 @@ export function Navbar() {
       {/* Social Icons */}
       <div className="hidden md:flex items-center space-x-6">
         <SocialLink href="#" icon={<Instagram size={18} />} label="Instagram" />
-        <SocialLink href="#" icon={<Linkedin size={18} />} label="LinkedIn" />
-        <SocialLink href="#" icon={<Github size={18} />} label="GitHub" />
+        <SocialLink href="https://www.linkedin.com/in/hammad-akram-3809b43a1?utm_source=share&utm_campaign=share_via&utm_content=profile&utm_medium=android_app" icon={<Linkedin size={18} />} label="LinkedIn" />
+        <SocialLink href="https://github.com/hammadakram70" icon={<Github size={18} />} label="GitHub" />
       </div>
 
       {/* Mobile Menu Toggle (Simplified for MVP) */}
