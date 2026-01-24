@@ -5,31 +5,58 @@ export function Contact() {
   const [isOpen, setIsOpen] = useState(false);
 
   return (
-    <section id="contact" className="py-40 relative min-h-screen flex items-center justify-center overflow-hidden px-8">
-      <div className="container mx-auto max-w-4xl relative z-10 text-center">
-        <motion.div
-          initial={{ opacity: 0, y: 30 }}
-          whileInView={{ opacity: 1, y: 0 }}
-          viewport={{ once: true }}
-          className="mb-16"
-        >
-          <span className="font-sans text-[10px] uppercase tracking-[0.5em] text-primary mb-4 block">Get In Touch</span>
-          <h2 className="text-5xl md:text-7xl font-serif text-white uppercase tracking-tighter">Contact <span className="italic text-primary">Us</span></h2>
-        </motion.div>
-
-        <motion.div
-          onMouseEnter={() => setIsOpen(true)}
-          onMouseLeave={() => setIsOpen(false)}
-          className="relative bg-noir/40 border border-white/10 p-12 md:p-20 backdrop-blur-xl group"
-        >
-          <div className="absolute top-0 left-0 w-full h-[1px] bg-gradient-to-r from-transparent via-primary/50 to-transparent" />
-          
-          <form className="space-y-10 text-left">
+    <form className="space-y-10 text-left">
             <div className="grid grid-cols-1 md:grid-cols-2 gap-10">
               <div className="space-y-2">
-
+                <label className="block text-[9px] uppercase tracking-widest text-primary">Your Name</label>
+                <input 
+                  type="text" 
+                  id="name"
+                  className="w-full bg-white/5 border border-white/10 px-6 py-4 text-white focus:border-primary/50 focus:outline-none transition-colors"
+                  required
+                />
+              </div>
+              <div className="space-y-2">
+                <label className="block text-[9px] uppercase tracking-widest text-primary">Your Email</label>
+                <input 
+                  type="email" 
+                  id="email"
+                  className="w-full bg-white/5 border border-white/10 px-6 py-4 text-white focus:border-primary/50 focus:outline-none transition-colors"
+                  required
+                />
+              </div>
+            </div>
+            <div className="space-y-2">
+              <label className="block text-[9px] uppercase tracking-widest text-primary">Subject</label>
+              <input 
+                type="text" 
+                id="subject"
+                className="w-full bg-white/5 border border-white/10 px-6 py-4 text-white focus:border-primary/50 focus:outline-none transition-colors"
+                required
+              />
+            </div>
+            <div className="space-y-2">
+              <label className="block text-[9px] uppercase tracking-widest text-primary">Your Message</label>
+              <textarea 
+                rows={6}
+                id="message"
+                className="w-full bg-white/5 border border-white/10 px-6 py-4 text-white focus:border-primary/50 focus:outline-none transition-colors resize-none"
+                required
+              />
+            </div>
             <div className="pt-8 flex justify-center">
               <motion.button 
+                type="button"
+                onClick={(e) => {
+                  e.preventDefault();
+                  const name = document.getElementById('name').value;
+                  const email = document.getElementById('email').value;
+                  const subject = document.getElementById('subject').value;
+                  const message = document.getElementById('message').value;
+                  
+                  const mailtoLink = `mailto:hamad.akram70@gmail.com?subject=Portfolio Main - ${encodeURIComponent(subject)}&body=${encodeURIComponent(`Name: ${name}\nEmail: ${email}\n\nMessage:\n${message}`)}`;
+                  window.location.href = mailtoLink;
+                }}
                 whileHover={{ scale: 1.05 }}
                 whileTap={{ scale: 0.95 }}
                 className="luxury-button w-full md:w-auto"
@@ -38,23 +65,4 @@ export function Contact() {
               </motion.button>
             </div>
           </form>
-
-          <div className="mt-20 pt-10 border-t border-white/5 grid grid-cols-1 md:grid-cols-3 gap-8 text-center">
-            <div>
-              <span className="block text-[9px] uppercase tracking-widest text-primary mb-2">Location</span>
-              <p className="text-sm font-sans text-muted-foreground">Wapda Town Lahore, Punjab</p>
-            </div>
-            <div>
-              <span className="block text-[9px] uppercase tracking-widest text-primary mb-2">Email</span>
-              <p className="text-sm font-sans text-muted-foreground">hamad.akram70@gmail.com</p>
-            </div>
-            <div>
-              <span className="block text-[9px] uppercase tracking-widest text-primary mb-2">Call</span>
-              <p className="text-sm font-sans text-muted-foreground">+92 311 6251731</p>
-            </div>
-          </div>
-        </motion.div>
-      </div>
-    </section>
-  );
 }
