@@ -1,4 +1,4 @@
-name: Deploy Vite App to GitHub Pages
+name: Deploy Vite + React + Tailwind to GitHub Pages
 
 on:
   push:
@@ -6,7 +6,7 @@ on:
       - main  # run this workflow when you push to main
 
 jobs:
-  build:
+  build-and-deploy:
     runs-on: ubuntu-latest
 
     steps:
@@ -16,7 +16,7 @@ jobs:
       # 2. Set up Node.js
       - uses: actions/setup-node@v3
         with:
-          node-version: '20'  # you can change to your Node version
+          node-version: '20'  # match your local Node version
 
       # 3. Install dependencies
       - run: npm install
@@ -24,9 +24,9 @@ jobs:
       # 4. Build the project
       - run: npm run build
 
-      # 5. Deploy to gh-pages branch
-      - name: Deploy
+      # 5. Deploy the built files to gh-pages
+      - name: Deploy to GitHub Pages
         uses: peaceiris/actions-gh-pages@v3
         with:
           github_token: ${{ secrets.GITHUB_TOKEN }}
-          publish_dir: ./dist
+          publish_dir: ./dist/public  # matches your Vite outDir
