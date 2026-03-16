@@ -1,0 +1,32 @@
+name: Deploy Vite App to GitHub Pages
+
+on:
+  push:
+    branches:
+      - main  # run this workflow when you push to main
+
+jobs:
+  build:
+    runs-on: ubuntu-latest
+
+    steps:
+      # 1. Check out the repo
+      - uses: actions/checkout@v3
+
+      # 2. Set up Node.js
+      - uses: actions/setup-node@v3
+        with:
+          node-version: '20'  # you can change to your Node version
+
+      # 3. Install dependencies
+      - run: npm install
+
+      # 4. Build the project
+      - run: npm run build
+
+      # 5. Deploy to gh-pages branch
+      - name: Deploy
+        uses: peaceiris/actions-gh-pages@v3
+        with:
+          github_token: ${{ secrets.GITHUB_TOKEN }}
+          publish_dir: ./dist
